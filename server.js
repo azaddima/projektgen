@@ -41,7 +41,18 @@ app.listen(port, function() {
 
 // Startseite
 app.get("/", (request,response) => {
-	response.sendFile(__dirname + "/index.html");
+
+	var account = "Login";
+	var sendTo = "/user/login";
+
+	// Try programm it in HTML!
+	if(request.session.authenticated == true) {
+		sendTo = "/user/myaccount"
+		account = "My Account";
+	}
+
+	response.render("index", {'sendTo': sendTo, 'account': account});
+
 });
 
 
