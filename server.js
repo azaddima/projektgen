@@ -184,8 +184,7 @@ app.get("/content", (request, response) => {
 		const username = request.session['username'];
 		response.render("content", {"user": username });
 	} else {
-		globalMessage = "No permission! Please login.";
-		response.redirect("/user/login")
+		response.render('login', {'message': "No permission! Please login."})
 	}
 
 });
