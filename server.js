@@ -15,6 +15,7 @@ app.set("view engine", "ejs");
 
 // Database setup
 const DB_COLLECTION = 'users';
+const DB_DEVICES = 'devices'
 const Db = require('tingodb')().Db;
 const db = new Db(__dirname + '/userdata', {})
 const ObjectID = require('tingodb')().ObjectID
@@ -55,11 +56,11 @@ app.get("/", (request,response) => {
 
 });
 
-
-var message = "";
+// Global error message
+var globalMessage = "";
 
 app.get("/user/login", (request, response) => {
-	response.render("login", {'message': message});
+	response.render("login", {'message': globalMessage})
 });
 
 app.post("/user/login", (request,response) => {
@@ -85,15 +86,13 @@ app.post("/user/login", (request,response) => {
 			// wrong password given
 			} else {
 				console.log(error);
-				message = "You password is wrong.";
-				response.redirect("/user/login");
+				response.render("login", {'message': "You password is wrong."});
 			}			
 		} 
 
 		// username is not in the databank
 		else {
-			message = "The user " + username +  " does not exist.";
-			response.redirect("/user/login");
+			response.render("login", {'message': "The user " + username +  " does not exist."});
 		}
 	});
 
@@ -105,7 +104,7 @@ app.post("/user/login", (request,response) => {
 // Always have different ways to access to one side. Really important for user experience.
 
 app.get("/user/register", (request, response) => {
-	// "error" and "on" have to be initialized as empty objects, otherwise you get an error message.
+	// "error" and "on" have to be initialized as empty objects, otherwise you get an error globalMessage.
 	response.render('register', {"error": "","on": ""});
 });
 
@@ -168,7 +167,7 @@ app.post("/user/registerverify", (request, response) => {
 				// Redirect should  be changed to login page!
 				response.render('register', {"error": error, "on": on});
 			} else {
-				// response with error message
+				// response with error globalMessage
 				response.render('register', {"error": error, 'on': ""});
 			}
 			
@@ -185,7 +184,7 @@ app.get("/content", (request, response) => {
 		const username = request.session['username'];
 		response.render("content", {"user": username });
 	} else {
-		message = "No permission! Please login.";
+		globalMessage = "No permission! Please login.";
 		response.redirect("/user/login")
 	}
 
@@ -194,7 +193,14 @@ app.get("/content", (request, response) => {
 app.get("/logout", (request,response) => {
 	delete request.session.authenticated;
 	delete request.session.username;
-	message = "Logout successful."
-	response.redirect("/user/login");
+	response.render('login', {'message': "Logout successful!"})
 });
+
+app.get('/user/myaccount', (request, response) => {
+	if(request.session.authenticated) {
+		response.render('myaccount', {'accountName': request.session.username});
+	}
+});
+
+
 
