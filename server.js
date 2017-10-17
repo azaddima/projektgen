@@ -1,7 +1,12 @@
+
+
 // Express init
 
 const express = require("express");
 const app = express();
+
+// css
+app.use(express.static(__dirname + '/public'));
 
 // body-parser init
 
@@ -19,6 +24,7 @@ const DB_DEVICES = 'devices'
 const Db = require('tingodb')().Db;
 const db = new Db(__dirname + '/userdata', {})
 const ObjectID = require('tingodb')().ObjectID
+
 
 // password encryption
 const passwordHash = require('password-hash'); 
@@ -198,8 +204,14 @@ app.get("/logout", (request,response) => {
 app.get('/user/myaccount', (request, response) => {
 	if(request.session.authenticated) {
 		response.render('myaccount', {'accountName': request.session.username});
+	} else {
+		noPermit();
 	}
 });
 
 
 
+// function hinzufügen
+var noPermit = function(request, response) {
+	response.render('login', {'message': "No permission! Please login."});
+};
