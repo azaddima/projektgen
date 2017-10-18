@@ -1,28 +1,42 @@
 body {
+	font-family: segoe-ui_normal,Segoe UI,Segoe,Segoe WP,Helvetica Neue,Helvetica, sans-serif;
 	background-image: url("background/piktogramme.png");
 	background-size: 550px;
 	margin: 0;
 
+	display: grid;
+	grid-template-areas:
+	"header header header"
+	"section section aside"
+	"footer footer footer";
+	grid-template-rows: 80px 1fr 50px;
+	grid-template-columns: 15% 1fr 18%
+	grid-gap: 10px;
+	height: 100vh;
+	margin: 0px;
 }
+
 header h1 {
 	color: white;
 	display: inline;
 	margin: 0;
 }
 header {
-	background: #52B08F;
+	background: #fb7736;
 	margin: 0;
 	padding: 0px 15px 0 15px;
+	grid-area: header;
 }
+
 nav ul {
-	margin: 0;
+	margin: 80%;
 	display: inline;
 	padding: 0 0 0 15px;
 }
 nav ul li {
 	list-style-type: none;
 	display: inline-block;
-	background: #52B08F;
+	background: black;
 	color: white;
 	padding: 15px 5%;
 }
@@ -30,5 +44,15 @@ nav ul li a {
 	color: white;
 	text-decoration: none; 
 }
+
+section {
+	grid-area: section;
+}
+
+footer {
+	grid-area: footer;
+}
+
+
 
  
