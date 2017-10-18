@@ -1,6 +1,8 @@
 body {
-	background: #BEB8B8;
+	background-image: url("background/piktogramme.png");
+	background-size: 550px;
 	margin: 0;
+
 }
 header h1 {
 	color: white;
@@ -8,7 +10,7 @@ header h1 {
 	margin: 0;
 }
 header {
-	background: #403B3B;
+	background: #52B08F;
 	margin: 0;
 	padding: 0px 15px 0 15px;
 }
@@ -20,7 +22,7 @@ nav ul {
 nav ul li {
 	list-style-type: none;
 	display: inline-block;
-	background: #A95757;
+	background: #52B08F;
 	color: white;
 	padding: 15px 5%;
 }
@@ -28,3 +30,5 @@ nav ul li a {
 	color: white;
 	text-decoration: none; 
 }
+
+ 
