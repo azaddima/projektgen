@@ -7,9 +7,9 @@ body {
 	display: grid;
 	grid-template-areas:
 	"header header header"
-	"section section aside"
+	"section section section"
 	"footer footer footer";
-	grid-template-rows: 80px 1fr 50px;
+	grid-template-rows: 50px 1fr 50px;
 	grid-template-columns: 15% 1fr 18%
 	grid-gap: 10px;
 	height: 100vh;
@@ -29,16 +29,15 @@ header {
 }
 
 nav ul {
-	margin: 80%;
 	display: inline;
 	padding: 0 0 0 15px;
 }
 nav ul li {
 	list-style-type: none;
 	display: inline-block;
-	background: black;
+	background: #D27E54;
 	color: white;
-	padding: 15px 5%;
+	padding: 14px 5%;
 }
 nav ul li a {
 	color: white;
