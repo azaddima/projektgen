@@ -1,6 +1,6 @@
 .gridwrapper {
 	display: grid;
-	grid-template-rows: 20px 50px 400px;
+	grid-template-rows: 20px 50px 100px 600px;
 	grid-template-columns: 1fr 2fr 1fr;
 }
 
@@ -21,10 +21,27 @@ body{
 	grid-column-end: 4;
 	background: #fb7736;
 	margin: 0px 5px;
-	padding: 0px 15px 0 15px;
+	padding: 0px 15px 0px 15px;
 	color: white;
-	align-items: center;
+	
 }
+h1 {
+	margin-top: 8px;
+}
+h2 {
+	font-size: 30px;
+}
+.message {
+
+	grid-row-start: 3;
+	grid-row-start: 3;
+	grid-column-start: 2;
+	grid-column-start: 2;
+	justify-self: center;
+	color: green;
+
+}
+
 
 nav ul {
 	display: inline;
@@ -46,10 +63,12 @@ nav ul li a {
 
 	grid-column-start: 2;
 	grid-column-end: 3;
-	grid-row-start: 3; 
+	grid-row-start: 4; 
 	grid-row-end: 4;
 	justify-self: center;
 	text-align: center;
+	align-items: end;
+
 
 }
 input {
@@ -57,7 +76,7 @@ input {
 	height: 50px;
 	width: 250px;
 	border-radius: 5px;
-	border-style: all;
+	border: 1px solid;
 	margin-top: 10px;
 	font-size: 25px;
 	padding-left: 5px;
@@ -65,8 +84,33 @@ input {
 	border-style: solid;
 	
 }
-form {
+button {
 
+	cursor: pointer;
+	margin-top: 7%;
+	margin-bottom: 5%;
+	height: 40px;
+	width: 50%;
+	border-radius: 3px;
+	outline: none;
+	font-size: 110%;
+	-webkit-transition-duration: 0.6s;
+    transition-duration: 0.6s;
+    background-color: white;
+	border: 1px solid #777;
+	color: #4c4c4c;
 
+}
+
+button:hover {
+
+	background-color: #777777;
+	color: white;
+
+}
+
+a {
+
+	margin-left: 3%;
 
 }
