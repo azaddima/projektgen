@@ -3,53 +3,61 @@ body {
 	background-image: url("background/piktogramme.png");
 	background-size: 550px;
 	margin: 0;
-
-	display: grid;
-	grid-template-areas:
-	"header header header"
-	"section section section"
-	"footer footer footer";
-	grid-template-rows: 50px 1fr 50px;
-	grid-template-columns: 15% 1fr 18%
-	grid-gap: 10px;
 	height: 100vh;
-	margin: 0px;
+
+
 }
 
-header h1 {
-	color: white;
-	display: inline;
-	margin: 0;
+.blanko {
+	background: white;
+	padding: 15px;
 }
+
+.navigation {
+	display: grid;
+	grid-template-columns:1fr 2fr 1fr;
+	/*grid-template-rows: 1fr 1fr 1fr;*/
+	grid-auto-rows: minmax(50px, auto);
+
+}
+
+.logo {
+	color: white;
+	font-size: 25px;
+	padding: 0 0 0 1em;
+
+	grid-row: 1
+	grid-column: 1;
+}
+
 header {
 	background: #fb7736;
-	margin: 0px 5px;
-	padding: 0px 15px 0 15px;
-	grid-area: header;
+	grid-row: 1;
+	grid-column: 1/4
 }
 
-nav ul {
-	display: inline;
-	padding: 0 0 0 15px;
+.user {
+	background: none;
+	grid-row: 1;
+	grid-column: 3/4;
+	align-self: center;
+	justify-self: stretch;
+	padding: 0px 20px 0 0;
+
 }
-nav ul li {
-	list-style-type: none;
-	display: inline-block;
-	background: #D27E54;
+
+.user div a {
 	color: white;
-	padding: 14px 5%;
+	text-decoration-style: none;
 }
-nav ul li a {
-	color: white;
-	text-decoration: none; 
-}
+
 
 section {
-	grid-area: section;
+
 }
 
 footer {
-	grid-area: footer;
+
 }
 
 

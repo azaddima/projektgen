@@ -49,7 +49,7 @@ app.listen(port, function() {
 // Startseite
 app.get("/", (request,response) => {
 
-	var account = "Login";
+	var account = "Einloggen";
 	var sendTo = "/user/login";
 
 	// Try programm it in HTML!
