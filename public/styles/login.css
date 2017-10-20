@@ -1,6 +1,6 @@
 .gridwrapper {
 	display: grid;
-	grid-template-rows: 20px 50px 100px 600px;
+	grid-template-rows: 25px 50px 100px 500px;
 	grid-template-columns: 1fr 2fr 1fr;
 }
 
@@ -26,7 +26,7 @@ body{
 	
 }
 h1 {
-	margin-top: 8px;
+	margin-top: 6px;
 }
 h2 {
 	font-size: 30px;
@@ -38,7 +38,7 @@ h2 {
 	grid-column-start: 2;
 	grid-column-start: 2;
 	justify-self: center;
-	color: green;
+	color: black;
 
 }
 
