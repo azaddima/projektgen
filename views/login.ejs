@@ -6,6 +6,8 @@
 
 </head>
 <body>
+	<div class="gridwrapper">
+	<div class="header1">
 	<header>
 		<nav>
 		<h1>Verleih123</h1>
@@ -14,18 +16,21 @@
 			</ul>
 		</nav>	
 	</header>
-	<h2><%=message%></h2>
-	<div id="loginbox">
-		<h2>Login</h2>
-	<form action="login" method="post">
-		<input type="text" name="username" placeholder="username"><br/>
-		<input type="password" name="password" placeholder="password"><br/>
-		<button type="submit">Submit</button>
-	</form>
-	
-
-	<a href="/user/register">Register</a>
-	<a href="/">Back to Home</a>
+	</div>
+		<div class="message">
+			<h2><%=message%></h2>
+		</div>
+		<div class="loginbox">
+			<h2>LOGIN</h2>
+			<form action="login" method="post">
+				<input type="text" name="username" placeholder="username"><br/>
+				<input type="password" name="password" placeholder="password"><br/>
+			<button type="submit">SUBMIT</button>
+			</form>
+		
+			<a href="/user/register">Register</a>
+			<a href="/">Back to Home</a>
+		</div>
 	</div>
 </body>
 </html>

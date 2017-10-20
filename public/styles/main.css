@@ -44,6 +44,10 @@ nav ul li a {
 	color: white;
 	text-decoration: none; 
 }
+nav ul li a:hover {
+	text-decoration: none;
+}
+
 
 section {
 	grid-area: section;
@@ -58,21 +62,19 @@ footer {
 	grid-area: top3;
 	text-align: right;
 	padding-right: 20px;
+	padding-left: 10px;
+	word-spacing: 10px;
 
 }
 
-a {
-
-	padding-left: 10px;
+a{
 	text-decoration: none;
 	color: black;
 
 }
 
-a:hover {
-
+a:hover{
 	text-decoration: underline;
-
 }
 
 
