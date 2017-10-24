@@ -237,13 +237,23 @@ app.get('/user/myaccount', (request, response) => {
 	if(request.session.authenticated) {
 		response.render('myaccount', {'accountName': request.session.username});
 	} else {
-		noPermit();
+		response.render('login', {'message': "No permission! Please login."})
 	}
 });
 
 
 
 // function hinzufügen
+/*
 let noPermit = function(request, response) {
 	response.render('login', {'message': "No permission! Please login."});
-};
+}; */
+
+
+app.get('/user/passwordChange', (request,response) => {
+	const user = request.session['username'];
+
+
+	response.render("changePassword", {'user' : user});
+
+});
