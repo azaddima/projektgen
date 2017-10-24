@@ -49,21 +49,22 @@ app.listen(port, function() {
 // Startseite
 app.get("/", (request,response) => {
 
-	var account = "Einloggen";
-	var sendTo = "/user/login";
+	let account = "Einloggen";
+	let sendTo = "/user/login";
 
 	// Try programm it in HTML!
 	if(request.session.authenticated == true) {
 		sendTo = "/user/myaccount"
 		account = "My Account";
-	}
 
+	}
+	
 	response.render("index", {'sendTo': sendTo, 'account': account});
 
 });
 
 // Global error message
-var globalMessage = "";
+let globalMessage = "";
 
 app.get("/user/login", (request, response) => {
 	response.render("login", {'message': globalMessage})
@@ -120,9 +121,13 @@ app.post("/user/registerverify", (request, response) => {
 	const password = request.body["password"];
 	const passwordrepeat = request.body["passwordrepeat"];
 	const email = request.body["email"];
+	const adress = request.body.adress
+	const adressNr = request.body.adressNr;
+	const place = request.body.place;
+	const plz = request.body.plz
 	let error = [];
 
-	var allowRegister = true;
+	let allowRegister = true;
 
 
 	// search for the username in database
@@ -154,8 +159,26 @@ app.post("/user/registerverify", (request, response) => {
 			if(email == "" || email == null || !email.includes("@")) {
 				error.push("Type a correct Email adress!")
 			}
-	
-		
+
+			if(adress == "" || adress == null) {
+				error.push("You must provide an adress")
+			} else {
+
+				if(adressNr == "" || adressNr == null) {
+					error.push("You must provide an adress number")
+				}
+			}
+
+
+			if(place == "" || place == null) {
+				error.push("Wohnort angeben!");
+			} else {
+
+				if(plz == "" || plz == null) {
+				error.push("Postleitszahl mit angeben")
+				}
+
+			}
 		
 		
 			// save userdata in databank
@@ -163,7 +186,15 @@ app.post("/user/registerverify", (request, response) => {
 				// Password encryption
 				const on = "Succesfully registered!";
 				const encryptedPass = passwordHash.generate(password);
-				const documents = {'username': username, 'password': encryptedPass, 'email': email};
+				const documents = {
+					'username': username,
+					'password': encryptedPass,
+					'email': email, 
+					'adress': adress,
+					'adressNr' : adressNr,
+					'place': place,
+					'plz': plz
+				};
 		
 				db.collection(DB_COLLECTION).save(documents, (err, result) =>  {
 					if(err) return console.log(err);
@@ -173,6 +204,7 @@ app.post("/user/registerverify", (request, response) => {
 				// Redirect should  be changed to login page!
 				response.render('register', {"error": error, "on": on});
 			} else {
+
 				// response with error globalMessage
 				response.render('register', {"error": error, 'on': ""});
 			}
@@ -205,13 +237,23 @@ app.get('/user/myaccount', (request, response) => {
 	if(request.session.authenticated) {
 		response.render('myaccount', {'accountName': request.session.username});
 	} else {
-		noPermit();
+		response.render('login', {'message': "No permission! Please login."})
 	}
 });
 
 
 
 // function hinzufügen
-var noPermit = function(request, response) {
+/*
+let noPermit = function(request, response) {
 	response.render('login', {'message': "No permission! Please login."});
-};
+}; */
+
+
+app.get('/user/passwordChange', (request,response) => {
+	const user = request.session['username'];
+
+
+	response.render("changePassword", {'user' : user});
+
+});
