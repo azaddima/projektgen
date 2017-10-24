@@ -2,26 +2,39 @@
 <html>
 <head>
 	<title>Register</title>
+	<link rel="stylesheet" type="text/css" href="../styles/register.css">
 </head>
-<body>
-	<ul>
-		<% for(var i = 0; i < error.length; i++) { %>
-			<li> <%=error[i]%></li>
-		<% } %>	
-	</ul>
+<body>	
+	<div class="gridwrapper">
+	<div class="header">
+	<header>
+		<nav>
+		<h1>Verleih123</h1>
+			<ul>
+				
+			</ul>
+		</nav>	
+	</header>
+	</div>
+		<ul>
+			<% for(var i = 0; i < error.length; i++) { %>
+				<li> <%=error[i]%></li>
+			<% } %>	
+		</ul>
 
-	<%= on %>
-	
-	<form action="/user/registerverify" method="post">
-		<input type="text" name="username" placeholder="username">
-		<input type="password" name="password" placeholder="Password">
-		<input type="password" name="passwordrepeat" placeholder="Repeat password">
-		<input type="email" name="email" placeholder="E-mail">
-		<button type="submit">REGISTER</button>
-	</form>
+		<%= on %>
+		<div class="formular">
+			<form action="/user/registerverify" method="post">
+				<input type="text" name="username" placeholder="username">
+				<input type="password" name="password" placeholder="Password">
+				<input type="password" name="passwordrepeat" placeholder="Repeat password">
+				<input type="email" name="email" placeholder="E-mail">
+				<button type="submit">REGISTER</button>
+			</form>
 
-	<a href="/user/login">Back to login</a>
-	<a href="/">Back to Home</a>
-
+			<a href="/user/login">Back to login</a>
+			<a href="/">Back to Home</a>
+		</div>
+	</div>
 </body>
 </html>

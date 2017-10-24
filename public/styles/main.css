@@ -2,42 +2,47 @@ body {
 	font-family: segoe-ui_normal,Segoe UI,Segoe,Segoe WP,Helvetica Neue,Helvetica, sans-serif;
 	background-image: url("background/piktogramme.png");
 	background-size: 550px;
-	margin: 0;
+
+	display: grid;
+	grid-template-areas:
+	"top1 top2 top3"
+	"navigation navigation navigation"
+	"section section section"
+	"footer footer footer";
+	grid-template-rows: 25px 55px 1fr 50px;
+	grid-template-columns: 15% 1fr 18%
+	grid-gap: 10px;
 	height: 100vh;
+	margin: 0px;
 
-
-}
-
-.blanko {
-	background: white;
-	padding: 15px;
 }
 
 .navigation {
+	grid-area: navigation;
+
 	display: grid;
 	grid-template-columns:1fr 2fr 1fr;
-	/*grid-template-rows: 1fr 1fr 1fr;*/
+	grid-template-rows: 1fr 1fr 1fr;
 	grid-auto-rows: minmax(50px, auto);
+	background: #fb7736;
+}
 
+
+header{
+	justify-self: left;
+	
 }
 
 .logo {
 	color: white;
-	font-size: 25px;
+	font-size: 20px;
 	padding: 0 0 0 1em;
 
 	grid-row: 1
 	grid-column: 1;
 }
 
-header {
-	background: #fb7736;
-	grid-row: 1;
-	grid-column: 1/4
-}
-
 .user {
-	background: none;
 	grid-row: 1;
 	grid-column: 3/4;
 	align-self: center;
@@ -48,16 +53,37 @@ header {
 
 .user div a {
 	color: white;
-	text-decoration-style: none;
+	text-decoration-style: none
 }
 
 
 section {
-
+	grid-area: section;
 }
 
 footer {
+	grid-area: footer;
+}
 
+
+.topline {
+
+	grid-area: top3;
+	text-align: right;
+	padding-right: 20px;
+	padding-left: 10px;
+	word-spacing: 10px
+	;
+}
+
+a{
+	text-decoration: none;
+	color: black;
+
+}
+
+a:hover{
+	text-decoration: underline;
 }
 
 
