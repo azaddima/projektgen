@@ -49,8 +49,8 @@ app.listen(port, function() {
 // Startseite
 app.get("/", (request,response) => {
 
-	var account = "Einloggen";
-	var sendTo = "/user/login";
+	let account = "Einloggen";
+	let sendTo = "/user/login";
 
 	// Try programm it in HTML!
 	if(request.session.authenticated == true) {
@@ -63,7 +63,7 @@ app.get("/", (request,response) => {
 });
 
 // Global error message
-var globalMessage = "";
+let globalMessage = "";
 
 app.get("/user/login", (request, response) => {
 	response.render("login", {'message': globalMessage})
@@ -120,9 +120,11 @@ app.post("/user/registerverify", (request, response) => {
 	const password = request.body["password"];
 	const passwordrepeat = request.body["passwordrepeat"];
 	const email = request.body["email"];
+	const adress
+	const adresNr = request.body.adressNr;
 	let error = [];
 
-	var allowRegister = true;
+	let allowRegister = true;
 
 
 	// search for the username in database
@@ -212,6 +214,6 @@ app.get('/user/myaccount', (request, response) => {
 
 
 // function hinzufügen
-var noPermit = function(request, response) {
+let noPermit = function(request, response) {
 	response.render('login', {'message': "No permission! Please login."});
 };
