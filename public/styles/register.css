@@ -1,7 +1,7 @@
 .gridwrapper {
 	display: grid;
-	grid-template-rows: 25px 50px 100px 500px;
-	grid-template-columns: 1fr 2fr 1fr;
+	grid-template-rows: 25px 50px 500px 100px;
+	grid-template-columns: 1fr 3fr 1fr;
 	grid-template-areas: 
 	"top1 top2 top3" 
 	"header header header"
@@ -22,18 +22,85 @@
 }
 
 .formular {
-
+	
 	grid-area: section2;
-	justify-content: center;
-	text-: bottom;
+	align-self: center;
+}
 
+.inputs {
+	display: grid;
+	grid-template-rows: 70px 70px 70px 70px 30px;
+	grid-template-columns: 1fr 1fr;
+	grid-template-areas: 
+	"field1 field5"
+	"field2 field6"
+	"field3 field7"
+	"field4 field8"
+	"field9 field9";
+	justify-content: center;
+	align-items: center;
 
 }
+
+.username {
+	grid-area: field1;
+	justify-self: center;
+}
+
+.email {
+	grid-area: field2;
+	justify-self: center;
+
+}
+
+.password {
+	grid-area: field3;
+	justify-self: center;
+}
+
+.passwordrepeat {
+	grid-area: field4;
+	justify-self: center;
+}
+
+.adress {
+	grid-area: field5;
+	justify-self: center;
+}
+
+.number {
+	float: right;
+	margin-left: 10px;
+}
+
+.place {
+	grid-area: field6;
+	justify-self: center;
+}
+
+.plz {
+	float: right;
+	margin-left: 10px;
+}
+
+.submitbutton {
+	grid-area: field8;
+	justify-self: center;
+}
+
+.links {
+	grid-area: field9;
+	justify-self: center;
+}
+
+
+
 
 body {
 	font-family: segoe-ui_normal,Segoe UI,Segoe,Segoe WP,Helvetica Neue,Helvetica, sans-serif;
 	background-image: url("background/piktogramme.png");
 	background-size: 550px;
+	margin: 0;
 
 }
 
