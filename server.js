@@ -56,8 +56,9 @@ app.get("/", (request,response) => {
 	if(request.session.authenticated == true) {
 		sendTo = "/user/myaccount"
 		account = "My Account";
-	}
 
+	}
+	
 	response.render("index", {'sendTo': sendTo, 'account': account});
 
 });
