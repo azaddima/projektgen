@@ -25,20 +25,40 @@
 		<%= on %>
 		<div class="formular">
 			<form action="/user/registerverify" method="post">
-				<input type="text" name="username" placeholder="Benutzername">
-				<input type="password" name="password" placeholder="Passwort">
-				<input type="password" name="passwordrepeat" placeholder="Passwort wiederholen">
-				<input type="email" name="email" placeholder="E-mail">
-				<input type="text" name="adress" placeholder="Straße">
-				<input type="text" name="adressNr" placeholder="Nr.">
-				<input type="text" name="place" placeholder="Ort">
-				<input type="text" name="plz" placeholder="PLZ">
-
-				<button type="submit">REGISTER</button>
+			<div class="inputs">
+				<div class="username">
+					<input type="text" name="username" placeholder="Benutzername">
+				</div>
+				<div class="password">
+					<input type="password" name="password" placeholder="Password">
+				</div>
+				<div class="passwordrepeat">
+					<input type="password" name="passwordrepeat" placeholder="Passwort wiederholen">
+				</div>
+				<div class="email">
+					<input type="email" name="email" placeholder="E-mail">
+				</div>
+				<div class="adress">
+					<input type="text" name="adress" placeholder="Straße">
+					<div class="number">
+						<input type="text" name="number" placeholder="Nr.">
+					</div>
+				</div>
+				<div class="place">
+					<input type="text" name="place" placeholder="Ort">
+					<div class="plz">
+						<input type="text" name="plz" placeholder="PLZ">
+					</div>
+				</div>
+				<div class="submitbutton">
+					<button type="submit">REGISTER</button>
+				</div>
 			</form>
-
-			<a href="/user/login">Back to login</a>
-			<a href="/">Back to Home</a>
+			<div class="links">
+				<a href="/user/login">Back to login</a>
+				<a href="/">Back to Home</a>
+			</div>
+			</div>
 		</div>
 	</div>
 </body>
