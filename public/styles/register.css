@@ -1,10 +1,11 @@
 .gridwrapper {
 	display: grid;
-	grid-template-rows: 25px 50px 500px 100px;
+	grid-template-rows: 25px 50px 180px 500px 100px;
 	grid-template-columns: 1fr 3fr 1fr;
 	grid-template-areas: 
 	"top1 top2 top3" 
 	"header header header"
+	"headline headline headline"
 	"section1 section2 section3"
 	"footer footer footer";"
 }
@@ -21,15 +22,23 @@
 
 }
 
+.headline {
+
+	grid-area: headline;
+	align-self: center;
+	justify-self: center;
+
+}
+
 .formular {
 	
 	grid-area: section2;
-	align-self: center;
+	align-self: top;
 }
 
 .inputs {
 	display: grid;
-	grid-template-rows: 70px 70px 70px 70px 30px;
+	grid-template-rows: 70px 70px 70px 70px 50px;
 	grid-template-columns: 1fr 1fr;
 	grid-template-areas: 
 	"field1 field5"
@@ -71,6 +80,7 @@
 .number {
 	float: right;
 	margin-left: 10px;
+
 }
 
 .place {
@@ -81,6 +91,7 @@
 .plz {
 	float: right;
 	margin-left: 10px;
+
 }
 
 .submitbutton {
@@ -93,7 +104,37 @@
 	justify-self: center;
 }
 
+.number input {
 
+	width: 35px;
+
+}
+
+.plz input {
+
+	width: 60px;
+
+}
+
+input {
+
+	border-style: none;
+	border-radius: 5px;
+	height: 40px;
+	width: 180px;
+	padding-left: 10px;
+	font-size: 15px;
+
+}
+
+.submitbutton button {
+
+	border-style: none;
+	border-radius: 5px;
+	width: 100px;
+	height: 40px;
+
+}
 
 
 body {
