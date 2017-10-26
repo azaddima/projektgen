@@ -1,6 +1,6 @@
 .gridwrapper {
 	display: grid;
-	grid-template-rows: 25px 50px 100px 500px;
+	grid-template-rows: 25px 50px 100px 360px 140px;
 	grid-template-columns: 1fr 2fr 1fr;
 }
 
@@ -61,14 +61,20 @@ nav ul li a {
 
 .loginbox {
 
-	grid-column-start: 2;
-	grid-column-end: 3;
-	grid-row-start: 4; 
-	grid-row-end: 4;
-	justify-self: center;
+	grid-column: 2;
+	grid-row: 4; 
 	text-align: center;
-	align-items: end;
+	background-color: rgba(80,80,80,0.5);
+	border-radius: 10px;
 
+
+}
+
+.loginbox a {
+
+	padding-left: 5px;
+	padding-right: 5px;
+	color: black;
 
 }
 input {
@@ -78,10 +84,10 @@ input {
 	border-radius: 5px;
 	border: 1px solid;
 	margin-top: 10px;
-	font-size: 25px;
+	font-size: 20px;
 	padding-left: 5px;
 	outline: none;
-	border-style: solid;
+	border-style: none;
 	
 }
 button {
@@ -90,27 +96,21 @@ button {
 	margin-top: 7%;
 	margin-bottom: 5%;
 	height: 40px;
-	width: 50%;
-	border-radius: 3px;
+	width: 20%;
+	border-style: none;	
+	border-radius: 5px;
 	outline: none;
 	font-size: 110%;
 	-webkit-transition-duration: 0.6s;
     transition-duration: 0.6s;
     background-color: white;
-	border: 1px solid #777;
 	color: #4c4c4c;
 
 }
 
 button:hover {
 
-	background-color: #777777;
+	background-color: #2fcc1e;
 	color: white;
-
-}
-
-a {
-
-	margin-left: 3%;
 
 }

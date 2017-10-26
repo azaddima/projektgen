@@ -140,6 +140,14 @@ input {
 	width: 180px;
 	padding-left: 10px;
 	font-size: 15px;
+	-webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+
+}
+
+input:hover {
+
+	background-color: rgb(220,220,220);
 
 }
 
@@ -151,12 +159,16 @@ input {
 	height: 40px;
 	-webkit-transition-duration: 0.6s;
     transition-duration: 0.6s;
+    cursor: pointer;
+    background-color: white;
+    font-size: 110%;
 
 }
 
 .submitbutton button:hover {
 
 	background-color: #2fcc1e;
+	color: white;
 }
 
 
