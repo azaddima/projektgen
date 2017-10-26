@@ -16,14 +16,15 @@
 		</nav>	
 	</header>
 	</div>
-		<ul>
-			<% for(var i = 0; i < error.length; i++) { %>
-				<li> <%=error[i]%></li>
-			<% } %>	
-		</ul>
+		<div class="errors">
+				<ul>
+					<% for(var i = 0; i < error.length; i++) { %>
+						<li> <%=error[i]%></li>
+					<% } %>	
+				</ul>
 
-		<%= on %>
-		
+				<%= on %>
+		</div>		
 		<div class="formular">
 			<form action="/user/registerverify" method="post">
 			<div class="inputs">

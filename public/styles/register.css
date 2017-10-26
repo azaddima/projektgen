@@ -147,7 +147,6 @@ input {
 
 input:hover {
 
-	background-color: rgb(220,220,220);
 
 }
 
@@ -201,4 +200,15 @@ nav ul li a {
 }
 nav ul li a:hover {
 	text-decoration: none;
+}
+
+.errors {
+
+	grid-column: 1;
+	grid-row: 4;
+	color: red;
+	text-align: left;
+	line-height: 150%;
+
+
 }
