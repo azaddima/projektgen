@@ -51,15 +51,19 @@ app.get("/", (request,response) => {
 
 	let account = "Einloggen";
 	let sendTo = "/user/login";
+	let log = "Anmelden";
+	let sendTo2 = "/user/login";
 
 	// Try programm it in HTML!
 	if(request.session.authenticated == true) {
 		sendTo = "/user/myaccount"
-		account = "My Account";
+		account = "Mein Konto";
+		log = "Abmelden";
+		sendTo2 = "/logout";
 
 	}
 	
-	response.render("index", {'sendTo': sendTo, 'account': account});
+	response.render("index", {'sendTo': sendTo, 'account': account, 'log': log, 'sendTo2': sendTo2});
 
 });
 
@@ -93,7 +97,7 @@ app.post("/user/login", (request,response) => {
 			// wrong password given
 			} else {
 				console.log(error);
-				response.render("login", {'message': "You password is wrong."});
+				response.render("login", {'message': "Falsches Passwort."});
 			}			
 		} 
 
