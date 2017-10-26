@@ -51,15 +51,19 @@ app.get("/", (request,response) => {
 
 	let account = "Einloggen";
 	let sendTo = "/user/login";
+	let log = "Anmelden";
+	let sendTo2 = "/user/login";
 
 	// Try programm it in HTML!
 	if(request.session.authenticated == true) {
 		sendTo = "/user/myaccount"
-		account = "My Account";
+		account = "Mein Konto";
+		log = "Abmelden";
+		sendTo2 = "/logout";
 
 	}
 	
-	response.render("index", {'sendTo': sendTo, 'account': account});
+	response.render("index", {'sendTo': sendTo, 'account': account, 'log': log, 'sendTo2': sendTo2});
 
 });
 
@@ -108,13 +112,13 @@ app.post("/user/login", (request,response) => {
 			// wrong password given
 			} else {
 				console.log(error);
-				response.render("login", {'message': "You password is wrong."});
+				response.render("login", {'message': "Falsches Passwort."});
 			}			
 		} 
 
 		// username is not in the databank
 		else {
-			response.render("login", {'message': "The user " + username +  " does not exist."});
+			response.render("login", {'message': "The user " + '"' + username + '"' + " does not exist."});
 		}
 	});
 
@@ -152,19 +156,19 @@ app.post("/user/registerverify", (request, response) => {
 			
 			// checks for mistakes in typed userdata
 			if(username == "" || username == null) {
-				error.push("Type a username!");
+				error.push("Geben Sie einen Benutzernamen ein.");
 			}
 		
 			if(password == "" || password == null){
-				error.push("Type a password!");
+				error.push("Geben Sie ein Passwort ein.");
 		
 			} else {
 		
 				if(passwordrepeat == "" || passwordrepeat == null) {
-					error.push("Don't forget to repeat your password!")
+					error.push("Passwort bitte wiederholen.")
 				} 
 				else if(password != passwordrepeat) {
-					error.push("Passwords dont match!")
+					error.push("Passwörter stimmen nicht überein.")
 				}
 			}
 			
@@ -172,25 +176,27 @@ app.post("/user/registerverify", (request, response) => {
 			// with type="email"
 		
 			if(email == "" || email == null || !email.includes("@")) {
-				error.push("Type a correct Email adress!")
+				error.push("Bitte geben Sie eine korrekte E-Mail-Adresse an.")
 			}
 
 			if(adress == "" || adress == null) {
-				error.push("You must provide an adress") 
+
+				error.push("Bitte geben Sie eine Adresse an.");
+
 			} else {
 
 				if(adressNr == "" || adressNr == null) {
-					error.push("You must provide an adress number")
+					error.push("Bitte geben Sie eine Hausnummer an.")
 				}
 			}
 
 
 			if(place == "" || place == null) {
-				error.push("Wohnort angeben!");
+				error.push("Bitte geben Sie ihren Wohnort an.");
 			} else {
 
 				if(plz == "" || plz == null) {
-				error.push("Postleitszahl mit angeben")
+				error.push("Bitte geben Sie ihre Postleitszahl an.")
 				}
 
 			}
@@ -199,7 +205,7 @@ app.post("/user/registerverify", (request, response) => {
 			// save userdata in databank
 			if(error.length == 0) {
 				// Password encryption
-				const on = "Succesfully registered!";
+				const on = "Erfolgreich registriert!";
 				const encryptedPass = passwordHash.generate(password);
 				const documents = {
 					'username': username,
@@ -225,11 +231,12 @@ app.post("/user/registerverify", (request, response) => {
 			}
 			
 		} else {
-			error.push("Username already taken");
+			error.push("Benutzername schon vergeben.");
 			response.render('register', {'error': error, 'on': ""});
 		} 
 	});
 });
+
 
 
 // USER management
@@ -237,14 +244,14 @@ app.post("/user/registerverify", (request, response) => {
 app.get("/logout", (request,response) => {
 	delete request.session.authenticated;
 	delete request.session.username;
-	response.render('login', {'message': "Logout successful!"})
+	response.render('login', {'message': "Erfolgreich abgemeldet!"})
 });
 
 app.get('/user/myaccount', (request, response) => {
 	if(request.session.authenticated) {
 		response.render('myaccount', {'accountName': request.session.username});
 	} else {
-		response.render('login', {'message': "No permission! Please login."})
+		response.render('login', {'message': "Kein Zugriffsrecht! Bitte melden Sie sich an."})
 	}
 });
 
