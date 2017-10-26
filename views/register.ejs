@@ -17,12 +17,16 @@
 	</header>
 	</div>
 		<ul>
+		
+		<!-- Hier könnte man mit Boolean und if arbeiten, damit man weniger Code im Server.js hat -->
 			<% for(var i = 0; i < error.length; i++) { %>
 				<li> <%=error[i]%></li>
 			<% } %>	
 		</ul>
 
 		<%= on %>
+
+
 		<div class="formular">
 			<form action="/user/registerverify" method="post">
 			<div class="inputs">

@@ -67,15 +67,30 @@ app.get("/", (request,response) => {
 let globalMessage = "";
 
 app.get("/user/login", (request, response) => {
-	response.render("login", {'message': globalMessage})
+
+	if(!request.session.authenticated) {
+
+		response.render("login", {'message': globalMessage})
+	
+		// Error message is set blank after rendering
+		// otherwise the message wouldnt dissapear after server restart
+		// !!!! important
+		globalMessage = "";
+		
+	} else  {
+		response.redirect('/');
+	}
+
 });
+
+// LOGIN management
 
 app.post("/user/login", (request,response) => {
 	const username = request.body["username"];
 	const password = request.body["password"];
 
 	// looking for the given username
-	db.collection(DB_COLLECTION).findOne({'username': username}, (error,result) => {
+	db.collection(DB_COLLECTION).findOne( {'username': username}, (error,result) => {
 
 		// If account is found in databank
 		if(result != null) {
@@ -88,7 +103,7 @@ app.post("/user/login", (request,response) => {
 
 				request.session['authenticated'] = true;
 				request.session["username"] = username;
-				response.redirect("/content");
+				response.redirect("/user/myaccount");
 
 			// wrong password given
 			} else {
@@ -161,7 +176,7 @@ app.post("/user/registerverify", (request, response) => {
 			}
 
 			if(adress == "" || adress == null) {
-				error.push("You must provide an adress")
+				error.push("You must provide an adress") 
 			} else {
 
 				if(adressNr == "" || adressNr == null) {
@@ -217,15 +232,7 @@ app.post("/user/registerverify", (request, response) => {
 });
 
 
-app.get("/content", (request, response) => {
-	if(request.session['authenticated'] == true) {
-		const username = request.session['username'];
-		response.render("content", {"user": username });
-	} else {
-		response.render('login', {'message': "No permission! Please login."})
-	}
-
-});
+// USER management
 
 app.get("/logout", (request,response) => {
 	delete request.session.authenticated;
@@ -250,10 +257,74 @@ let noPermit = function(request, response) {
 }; */
 
 
+// PASSWORD management
+ 
 app.get('/user/passwordChange', (request,response) => {
 	const user = request.session['username'];
 
 
 	response.render("changePassword", {'user' : user});
 
+});
+
+
+
+app.post('/user/passwordChange_verify', (request,response) => {
+
+	const oldPass = request.body.oldPass;
+	const newPass = passwordHash.generate(request.body.newPass);
+
+
+	// WE BETTER SHOULD
+	db.collection(DB_COLLECTION).findOne({'username': request.session.username}, (error,result) => {
+		
+		if(request.session.authenticated) {
+
+			if(passwordHash.verify(oldPass,result.password)) {
+
+				// make sure to DELETE
+				console.log("ask to change password");
+				response.render("changePassword", {'user': request.session.username});
+
+				// Code for updating the password
+				/*
+				db.collection(DB_COLLECTION).updateOne(
+
+					{ username: result.username},
+
+					{ $set: { password: newPass }
+
+					})
+
+				.then(function(result) {
+
+					console.log(result);
+
+				});
+
+
+				// Deletes the first document with the ID, because otherwise we would have duplicated documents
+				// (documents == one user)
+				/*
+				db.collection(DB_COLLECTION).deleteOne( { username: result.username } );
+				*/
+
+
+			} else {
+
+				// make sure to DELETE
+				console.log("no");
+				response.render("changePassword", {'user': request.session.username});
+			}
+			
+		} else {
+
+			// make sure to DELETE
+			console.log("not logged in");
+			globalMessage = "You need to login."
+			response.redirect('/user/login')
+
+		}
+	});
+	
 });
