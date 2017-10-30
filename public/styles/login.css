@@ -1,7 +1,9 @@
 .gridwrapper {
 	display: grid;
-	grid-template-rows: 25px 50px 100px 360px 140px;
+	grid-template-rows: 25px 55px 100px 380px 140px;
 	grid-template-columns: 1fr 2fr 1fr;
+	grid-gap: 10px;
+	height: 100vh; 
 }
 
 
