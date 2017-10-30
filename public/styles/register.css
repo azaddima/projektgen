@@ -1,13 +1,24 @@
+body {
+
+	font-family: segoe-ui_normal,Segoe UI,Segoe,Segoe WP,Helvetica Neue,Helvetica, sans-serif;
+	background-image: url("background/piktogramme.png");
+	background-size: 550px;
+	margin: 0;
+
+}
+
 .gridwrapper {
 	display: grid;
-	grid-template-rows: 25px 50px 80px 500px 100px;
+	grid-template-rows: 25px 55px 80px 500px 100px;
 	grid-template-columns: 1fr 3fr 1fr;
+	grid-gap: 10px;
 	grid-template-areas: 
 	"top1 top2 top3" 
 	"header header header"
 	"headline headline headline"
 	"section1 section2 section3"
 	"footer footer footer";"
+
 }
 
 .header {
@@ -19,7 +30,19 @@
 	margin: 0px 5px;
 	padding: 0px 15px 0px 15px;
 	color: white;
+	margin: 0;
 
+}
+
+.logo {
+
+	color: white;
+	font-size: 20px;
+	padding: 0 0 0 1em;
+	grid-row: 1;
+	grid-column: 1;
+	margin-top: 13.5px;   /*nur übergangsweise, aus irgendeinem Grund kann man das Logo nicht vertikal "alignen"*/
+	padding-left: 5px;
 }
 
 .headline {
@@ -171,37 +194,6 @@ input:hover {
 	color: white;
 }
 
-
-body {
-	font-family: segoe-ui_normal,Segoe UI,Segoe,Segoe WP,Helvetica Neue,Helvetica, sans-serif;
-	background-image: url("background/piktogramme.png");
-	background-size: 550px;
-	margin: 0;
-
-}
-
-h1 {
-	margin-top: 6px;
-}
-
-nav ul {
-	display: inline;
-	padding: 0 0 0 15px;
-}
-nav ul li {
-	list-style-type: none;
-	display: inline-block;
-	background: #D27E54;
-	color: white;
-	padding: 14px 5%;
-}
-nav ul li a {
-	color: white;
-	text-decoration: none; 
-}
-nav ul li a:hover {
-	text-decoration: none;
-}
 
 .errors {
 
