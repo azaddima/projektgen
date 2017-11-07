@@ -1,32 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Mein Konto</title>
+	<link rel="stylesheet" type="text/css" href="../styles/myAccount.css">
 </head>
 <body>
-	<h1><%=accountName%></h1>
-
-
-	<p>
-		
-		<a href="">Add credit card info</a>
-		<a href="">Add new adress</a>	
-	</p>
-
-	<p>
-		<a href="">Change main delivery adress</a>
-		<a href="">Change adress</a>
-		<a href="">Change Email</a>
-		<a href="/user/passwordChange">Change password</a>
-	</p>
-	
-	<form action="/logout" method="get">
-		<button>Log out</button>	
-	</form>
-
-	<form action="/" method="get">
-		<button>Go back hoooooooooome</button>
-	</form>
-
+	<div class="gridwrapper">
+		<a class="logoutlink" href="</logout>">Abmelden</a>
+		<div class="header">
+			<h1 class="logo">Verleih123</h1>
+		</div>
+		<h2 class="headerName">Ihre Kontoeinstellungen | <%=accountName%></h2>
+		<ul class="links">
+			<li><a href="">Bankverbindung hinzufügen</a></li>
+				
+			<li><a href="">Persönliche Daten</a></li>
+			
+			<li><a href="/user/passwordChange">Passwort ändern</a></li>
+		</ul>
+		<div class="buttons">
+			<form action="/logout" method="get">
+				<button>ABMELDEN</button>	
+			</form>
+		</div>
+	</div>
 </body>
 </html>
