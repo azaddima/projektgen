@@ -1,5 +1,4 @@
 
-
 // Express init
 
 const express = require("express");
@@ -49,10 +48,14 @@ app.listen(port, function() {
 // Startseite
 app.get("/", (request,response) => {
 
+	// can be coded in HTML to prevent this bulky code
+
 	let account = "Einloggen";
 	let sendTo = "/user/login";
 	let log = "Anmelden";
 	let sendTo2 = "/user/login";
+
+	// SEND TO
 
 	// Try programm it in HTML!
 	if(request.session.authenticated == true) {
@@ -100,13 +103,16 @@ app.post("/user/login", (request,response) => {
 		if(result != null) {
 			accExtists = true;	
 			console.log(result.password);
+			
 
 			// if given password matches with account username
 			// Uing passwordHash to decrypt the password and compare them
-			if (passwordHash.verify(password,result.password)) {
+			if (passwordHash.verify(password, result.password)) {
+
 
 				request.session['authenticated'] = true;
-				request.session["username"] = username;
+				request.session['username'] = username;
+				request.session['userId'] = result._id;
 				response.redirect("/user/myaccount");
 
 			// wrong password given
@@ -127,7 +133,7 @@ app.post("/user/login", (request,response) => {
 
 // REGISTER
 
-// Always have different ways to access to one side. Really important for user experience.
+// Always have different ways to access to an SITE. Really important for user experience.
 
 app.get("/user/register", (request, response) => {
 	// "error" and "on" have to be initialized as empty objects, otherwise you get an error globalMessage.
@@ -244,94 +250,64 @@ app.post("/user/registerverify", (request, response) => {
 app.get("/logout", (request,response) => {
 	delete request.session.authenticated;
 	delete request.session.username;
-	response.render('login', {'message': "Erfolgreich abgemeldet!"})
+	delete request.session.userId;
+	globalMessage = "Erfolgreich abgemeldet!"
+	response.redirect('/user/login');
 });
 
 app.get('/user/myaccount', (request, response) => {
 	if(request.session.authenticated) {
 		response.render('myaccount', {'accountName': request.session.username});
 	} else {
-		response.render('login', {'message': "Kein Zugriffsrecht! Bitte melden Sie sich an."})
+		globalMessage = "Kein Zugriffsrecht! Bitte melden Sie sich an.";
+		response.redirect('/user/login');
 	}
 });
-
-
-
-// function hinzufügen
-/*
-let noPermit = function(request, response) {
-	response.render('login', {'message': "No permission! Please login."});
-}; */
 
 
 // PASSWORD management
  
 app.get('/user/passwordChange', (request,response) => {
 	const user = request.session['username'];
-
-
 	response.render("changePassword", {'user' : user});
 
 });
 
 
+// password change verification
 
 app.post('/user/passwordChange_verify', (request,response) => {
 
 	const oldPass = request.body.oldPass;
 	const newPass = passwordHash.generate(request.body.newPass);
+	const userId = request.session.userId;
 
 
-	// WE BETTER SHOULD
-	db.collection(DB_COLLECTION).findOne({'username': request.session.username}, (error,result) => {
-		
-		if(request.session.authenticated) {
+	console.log("userId: " + userId + " user name: " + request.session.username);
 
-			if(passwordHash.verify(oldPass,result.password)) {
+		db.collection(DB_COLLECTION).findOne( {'_id': userId}, (error, result) => {
+			
+			if(error) return console.log(error);
 
-				// make sure to DELETE
-				console.log("ask to change password");
-				response.render("changePassword", {'user': request.session.username});
+			if(!passwordHash.verify(oldPass, result.password)) {
+				console.log("Dein Password ist nicht korrekt!");
+				response.redirect('/user/passwordChange');
+			} 
+			//passwords match
+			else {
 
-				// Code for updating the password
-				/*
-				db.collection(DB_COLLECTION).updateOne(
+				db.collection(DB_COLLECTION).update(
 
-					{ username: result.username},
+					{ '_id': userId }, 
+					{ $set: {password : newPass } }
 
-					{ $set: { password: newPass }
+				);
 
-					})
-
-				.then(function(result) {
-
-					console.log(result);
-
-				});
-
-
-				// Deletes the first document with the ID, because otherwise we would have duplicated documents
-				// (documents == one user)
-				/*
-				db.collection(DB_COLLECTION).deleteOne( { username: result.username } );
-				*/
-
-
-			} else {
-
-				// make sure to DELETE
-				console.log("no");
-				response.render("changePassword", {'user': request.session.username});
+				response.redirect('/user/passwordChange')
 			}
 			
-		} else {
+		});
 
-			// make sure to DELETE
-			console.log("not logged in");
-			globalMessage = "You need to login."
-			response.redirect('/user/login')
 
-		}
-	});
 	
 });
