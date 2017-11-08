@@ -19,7 +19,7 @@ app.set("view engine", "ejs");
 
 // Database setup
 const DB_COLLECTION = 'users';
-const DB_DEVICES = 'devices'
+const itemsData = 'items';
 const Db = require('tingodb')().Db;
 const db = new Db(__dirname + '/userdata', {})
 const ObjectID = require('tingodb')().ObjectID
@@ -27,6 +27,9 @@ const ObjectID = require('tingodb')().ObjectID
 
 // password encryption
 const passwordHash = require('password-hash'); 
+
+//file upload -- multer
+const multer = require('multer');
 
 // init session
 const session = require("express-session");
@@ -306,8 +309,66 @@ app.post('/user/passwordChange_verify', (request,response) => {
 				response.redirect('/user/passwordChange')
 			}
 			
+		});	
+});
+
+
+app.get('/admin/upload', (request, response) => {
+	response.render("upload");
+});
+
+
+// Upload
+
+//set storage folder and filenames
+let storage = multer.diskStorage({
+	destination: function(request, file, callback) {
+		callback(null, 'uploads/'); //define folder for uploaded files
+	},
+
+	filename: function(request, file, callback) {
+		callback(null, file.originalname); // define filename of original file
+	}
+
+});
+
+
+// upload methods
+//single
+let upload = multer({storage: storage}).single('filename');
+
+
+
+// mutliple
+//let upload = multer({ storage: storage}).array(fieldname, [maxcount]);
+
+app.post('/admin/upload_image', function(request, response) {
+	
+	upload(request, response, function(err) {
+		if(err) {
+			console.log('Error occured: ', err);
+			return;
+		}
+
+		console.log(request.file.path + " request.file");
+
+
+		// TEST
+		const items = {
+			'imagePath' : request.file.path,
+			'kaka' : "vogel"
+		};
+
+		db.collection(itemsData).save(items, (err, result) =>  {
+			if(err) return console.log(err);
+			console.log("saved to database");
 		});
 
+		response.end('Your File is uploaded');
 
-	
+	});
+	// save the image path to item collection
+	//
+
+
 });
