@@ -354,9 +354,11 @@ app.post('/admin/upload_image', function(request, response) {
 
 
 		// TEST
+		// save the image path to item collection
+		//
 		const items = {
 			'imagePath' : request.file.path,
-			'kaka' : "vogel"
+			'kaka' : "Daniel ist 1 Opfer"
 		};
 
 		db.collection(itemsData).save(items, (err, result) =>  {
@@ -367,8 +369,6 @@ app.post('/admin/upload_image', function(request, response) {
 		response.end('Your File is uploaded');
 
 	});
-	// save the image path to item collection
-	//
 
 
 });
