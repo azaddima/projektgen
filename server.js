@@ -372,3 +372,11 @@ app.post('/admin/upload_image', function(request, response) {
 
 
 });
+
+app.get('/user/bankdata', (request, response) => {
+	response.render('bankdata', {'accountName': request.session.username});
+});
+
+app.get('/user/personaldata', (request, response) => {
+	response.render('personaldata', {'accountName': request.session.username});
+});
