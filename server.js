@@ -369,8 +369,6 @@ app.post('/admin/upload_image', function(request, response) {
 		response.end('Your File is uploaded');
 
 	});
-
-
 });
 
 app.get('/user/bankdata', (request, response) => {
@@ -379,4 +377,11 @@ app.get('/user/bankdata', (request, response) => {
 
 app.get('/user/personaldata', (request, response) => {
 	response.render('personaldata', {'accountName': request.session.username});
+});
+
+app.post('/user/bankdata', (request, response) => {
+
+	//Hier müssen die Bankdaten in die Datenbank geschrieben werden und dem richtigen User zugeordnet werden!
+
+	response.redirect('/user/myaccount');
 });

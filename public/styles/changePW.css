@@ -10,7 +10,7 @@ body {
 	"topsection topsection topsection"
 	"section section section"
 	"footer footer footer";
-	grid-template-rows: 25px 55px 100px 400px 250px;
+	grid-template-rows: 25px 55px 100px 400px 200px;
 	grid-template-columns: 1fr 2fr 1fr;
 	grid-gap: 10px;
 	height: 100vh; 
