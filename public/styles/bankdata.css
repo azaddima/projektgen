@@ -9,8 +9,8 @@ body {
 
 .gridwrapper {
 	display: grid;
-	grid-template-rows: 25px 55px 80px 340px 260px;
-	grid-template-columns: 1fr 3fr 1fr;
+	grid-template-rows: 25px 55px 100px 380px 80px;
+	grid-template-columns: 1fr 2fr 1fr;
 	grid-gap: 10px;
 	grid-template-areas: 
 	"top1 top2 top3" 
@@ -66,6 +66,82 @@ body {
 }
 
 .logoutlink:hover {
+
+	text-decoration: underline;
+
+}
+
+.bankdata {
+
+	grid-row: 4;
+	grid-column: 2;
+	background-color: rgba(80,80,80,0.5);
+	border-radius: 10px;
+	text-align: center;
+
+
+}
+
+.bankdata input {
+
+	height: 50px;
+	width: 250px;
+	border-radius: 5px;
+	border: 1px solid;
+	margin-top: 10px;
+	font-size: 20px;
+	padding-left: 5px;
+	outline: none;
+	border-style: none;
+
+}
+
+.bankdata button {
+
+	cursor: pointer;
+	margin-top: 7%;
+	margin-bottom: 5%;
+	height: 40px;
+	width: 140px;
+	border-style: none;	
+	border-radius: 5px;
+	outline: none;
+	font-size: 90%;
+	-webkit-transition-duration: 0.6s;
+    transition-duration: 0.6s;
+    background-color: white;
+	color: #4c4c4c;
+
+}
+
+.bankdata button:hover {
+
+	background-color: #2fcc1e;
+	color: white;
+
+}
+
+.bankdata h2 {
+
+	font-size: 30px;
+
+}
+
+a {
+
+	grid-row: 5;
+	grid-column: 2;
+	margin-top: 15px;
+	margin-left: 15px;
+	color: black;
+	text-decoration: none;
+	justify-self: center;
+	outline: 0;
+	border: 0;
+
+}
+
+a:hover {
 
 	text-decoration: underline;
 

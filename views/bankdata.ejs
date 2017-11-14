@@ -11,11 +11,15 @@
 			<h1 class="logo">Verleih123</h1>
 		</div>
 		<h2 class="headerName">Ihre Zahlungseinstellungen | <%=accountName%></h2>
-		<form class="bankdata" action="/user/bankdata" method="post">
-			<input type="text" placeholder="Kontonummer">
-			<input type="text" placeholder="Name ihrer Bank">
+		<div class="bankdata">
+			<h2>DATEN</h2>
+		<form action="/user/bankdata" method="post">
+			<input type="text" placeholder="Kontonummer"><br>
+			<input type="text" placeholder="Name ihrer Bank"><br>
 			<button type="submit">BANKDATEN HINZUFÜGEN</button>
 		</form>
+		</div>
+		<a href="/user/myaccount">ZURÜCK</a>
 	</div>
 </body>
 </html>
