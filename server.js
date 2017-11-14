@@ -1,4 +1,3 @@
-blank
 // Express init
 
 const express = require("express");
@@ -371,6 +370,7 @@ app.post('/admin/upload_image', function(request, response) {
 	});
 });
 
+
 app.get('/user/bankdata', (request, response) => {
 	response.render('bankdata', {'accountName': request.session.username});
 });
@@ -382,6 +382,5 @@ app.get('/user/personaldata', (request, response) => {
 app.post('/user/bankdata', (request, response) => {
 
 	//Hier müssen die Bankdaten in die Datenbank geschrieben werden und dem richtigen User zugeordnet werden!
-
 	response.redirect('/user/myaccount');
 });

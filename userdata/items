@@ -19,3 +19,6 @@
 {"k":"0000000078","o":"0000000091","v":"001"}
 {"_id":8,"_uid":8,"_dt":1510235552471,"_s":"e3ee20eeed841d8c1fb2c60b7ff96b55"}
 {"imagePath":"uploads\\Fanus.png","kaka":"Daniel ist 1 Opfer","_id":{"$wrap":"$oid","v":8}}
+{"k":"0000000078","o":"0000000089","v":"001"}
+{"_id":9,"_uid":9,"_dt":1510647986118,"_s":"d99b278558b6d02bab6a2dbb0bcc3223"}
+{"imagePath":"uploads\\bg4.png","kaka":"Daniel ist 1 Opfer","_id":{"$wrap":"$oid","v":9}}
