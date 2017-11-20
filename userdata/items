@@ -1,24 +1,3 @@
-{"k":"0000000078","o":"0000000093","v":"001"}
-{"_id":2,"_uid":2,"_dt":1510176006337,"_s":"709447a542d6dd39081a2967192bdac3"}
-{"imagePath":"uploads\\lu-fio-new-canvas132.jpg","kaka":"vogel","_id":{"$wrap":"$oid","v":2}}
-{"k":"0000000078","o":"0000000078","v":"001"}
-{"_id":3,"_uid":3,"_dt":1510176169439,"_s":"782b30f660a22b3cab1e83d01fd74632"}
-{"imagePath":"uploads\\Fanus.png","kaka":"vogel","_id":{"$wrap":"$oid","v":3}}
-{"k":"0000000078","o":"0000000077","v":"001"}
-{"_id":4,"_uid":4,"_dt":1510176208703,"_s":"301a90a9533c1a6872c3ccaafdf2a567"}
-{"imagePath":"uploads\\MENA.png","kaka":"vogel","_id":{"$wrap":"$oid","v":4}}
-{"k":"0000000078","o":"0000000083","v":"001"}
-{"_id":5,"_uid":5,"_dt":1510215170088,"_s":"3750952742a454f60af1ed9fcafa9942"}
-{"imagePath":"uploads\\Skizze (2).png","kaka":"vogel","_id":{"$wrap":"$oid","v":5}}
-{"k":"0000000078","o":"0000000079","v":"001"}
-{"_id":6,"_uid":6,"_dt":1510215187048,"_s":"2fbc997e67adb489706c7dfe8968802d"}
-{"imagePath":"uploads\\Skizze.png","kaka":"vogel","_id":{"$wrap":"$oid","v":6}}
-{"k":"0000000078","o":"0000000077","v":"001"}
-{"_id":7,"_uid":7,"_dt":1510215217329,"_s":"9b0dacb6c30a2d6a78183df61ace6918"}
-{"imagePath":"uploads\\Olga.png","kaka":"vogel","_id":{"$wrap":"$oid","v":7}}
-{"k":"0000000078","o":"0000000091","v":"001"}
-{"_id":8,"_uid":8,"_dt":1510235552471,"_s":"e3ee20eeed841d8c1fb2c60b7ff96b55"}
-{"imagePath":"uploads\\Fanus.png","kaka":"Daniel ist 1 Opfer","_id":{"$wrap":"$oid","v":8}}
-{"k":"0000000078","o":"0000000089","v":"001"}
-{"_id":9,"_uid":9,"_dt":1510647986118,"_s":"d99b278558b6d02bab6a2dbb0bcc3223"}
-{"imagePath":"uploads\\bg4.png","kaka":"Daniel ist 1 Opfer","_id":{"$wrap":"$oid","v":9}}
+{"k":"0000000078","o":"0000000125","v":"001"}
+{"_id":2,"_uid":2,"_dt":1511185705964,"_s":"9366ed300006aad6e88856811dc677e6"}
+{"imagePath":["uploads\\ship.png"],"deviceName":"Bohrer","price":"123","description":"Sehr gut","_id":{"$wrap":"$oid","v":2}}

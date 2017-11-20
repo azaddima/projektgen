@@ -352,12 +352,14 @@ app.post('/admin/upload_image', function(request, response) {
 		console.log(request.file.path + " request.file");
 
 
-		// TEST
 		// save the image path to item collection
-		//
+		// add array of images?
 		const items = {
-			'imagePath' : request.file.path,
-			'kaka' : "Daniel ist 1 Opfer"
+
+			'imagePath' : [request.file.path],
+			'deviceName' : request.body.deviceName,
+			'price' : request.body.price,
+			'description' : request.body.description,
 		};
 
 		db.collection(itemsData).save(items, (err, result) =>  {
@@ -371,16 +373,21 @@ app.post('/admin/upload_image', function(request, response) {
 });
 
 
-app.get('/user/bankdata', (request, response) => {
-	response.render('bankdata', {'accountName': request.session.username});
-});
 
 app.get('/user/personaldata', (request, response) => {
 	response.render('personaldata', {'accountName': request.session.username});
 });
 
+
+
+app.get('/user/bankdata', (request, response) => {
+	response.render('bankdata', {'accountName': request.session.username});
+});
+
+
 app.post('/user/bankdata', (request, response) => {
 
 	//Hier müssen die Bankdaten in die Datenbank geschrieben werden und dem richtigen User zugeordnet werden!
+	//OKE mach isch
 	response.redirect('/user/myaccount');
 });

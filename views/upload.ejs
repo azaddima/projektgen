@@ -5,13 +5,16 @@
 </head>
 <body>
 
-	<h1>Plz Uploaden du booszer</h1>
+	<h1>Geräte zum Shop hinzufügen</h1>
 
 	<form action="upload_image" method="post" enctype="multipart/form-data">
-		<input type="file" name="filename"><br/><br/>
-		<input type="submit" value="Upload" name="submit">
-	</form>
+		<input type="text" name="deviceName" placeholder="Gerätename">
+		<input type="text" name="price" placeholder="Preise">
+		<input type="text" name="description" placeholder="Geräte Beschreibung">
 
+		<input type="file" name="filename"><br/><br/>
+		<input type="submit" value="Gerät Hinzufügen" name="submit">
+	</form>
 
 </body>
 </html>

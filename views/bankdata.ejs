@@ -6,16 +6,20 @@
 </head>
 <body>
 	<div class="gridwrapper">
-		<a class="logoutlink" href="</logout>">Abmelden</a>
+		<a class="logoutlink" href="/logout">Abmelden</a>
 		<div class="header">
 			<h1 class="logo">Verleih123</h1>
 		</div>
+			
 		<h2 class="headerName">Ihre Zahlungseinstellungen | <%=accountName%></h2>
+
 		<form class="bankdata" action="/user/bankdata" method="post">
-			<input type="text" placeholder="Kontonummer">
-			<input type="text" placeholder="Name ihrer Bank">
+			<input type="text" name=bankNr placeholder="Kontonummer">
+			<input type="text" name=bankName placeholder="Name ihrer Bank">
 			<button type="submit">BANKDATEN HINZUFÜGEN</button>
 		</form>
+
 	</div>
+
 </body>
 </html>
