@@ -18,6 +18,13 @@
 			<li><a href="/user/personaldata">Persönliche Daten</a></li>
 			
 			<li><a href="/user/passwordChange">Passwort ändern</a></li>
+			<% if(adminAuth) { %>
+				
+			<li><a href="/admin/upload">Gerät Hinzufügen</a></li>
+
+				
+			<% } %> 
+
 		</ul>
 		<div class="buttons">
 			<form action="/logout" method="get">

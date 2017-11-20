@@ -72,6 +72,7 @@ app.get("/", (request,response) => {
 	
 	
 // KANN IN ESJ  VERLAGERT WERDEN -- code genuss
+// if nothing is in items data make sure no error is shown -- code genuss
 
 	let indexDevices = db.collection(itemsData).find().toArray(
 
@@ -100,7 +101,6 @@ app.post('/viewDevice/:deviceName', (request, response) => {
 	db.collection(itemsData).findOne( {deviceName: request.params.deviceName}, (error, result) => {
 
 		console.log(result);
-
 
 		response.render("viewDevice", {'device': result});
 		
@@ -155,6 +155,11 @@ app.post("/user/login", (request,response) => {
 				request.session['authenticated'] = true;
 				request.session['username'] = username;
 				request.session['userId'] = result._id;
+
+				if(request.session.username == "admin") {
+					request.session.adminAuthenticated = true;
+				}
+
 				response.redirect("/user/myaccount");
 
 			// wrong password given
@@ -293,13 +298,25 @@ app.get("/logout", (request,response) => {
 	delete request.session.authenticated;
 	delete request.session.username;
 	delete request.session.userId;
+
+	if(request.session.adminAuthenticated){
+		delete request.session.adminAuthenticated;
+	}
+
 	globalMessage = "Erfolgreich abgemeldet!"
 	response.redirect('/user/login');
 });
 
 app.get('/user/myaccount', (request, response) => {
 	if(request.session.authenticated) {
-		response.render('myaccount', {'accountName': request.session.username});
+		response.render('myaccount', {
+
+			'accountName': request.session.username, 
+			'adminAuth': request.session.adminAuthenticated
+
+		});
+
+
 	} else {
 		globalMessage = "Kein Zugriffsrecht! Bitte melden Sie sich an.";
 		response.redirect('/user/login');
@@ -353,7 +370,13 @@ app.post('/user/passwordChange_verify', (request,response) => {
 
 
 app.get('/admin/upload', (request, response) => {
-	response.render("upload");
+	
+	if(request.session.adminAuthenticated) {
+		response.render("upload");
+	} else {
+		globalMessage = "Kein Zugriff!";
+		response.redirect('../user/login')
+	}
 });
 
 
