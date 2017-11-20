@@ -6,6 +6,8 @@ const app = express();
 // css
 app.use(express.static(__dirname + '/public'));
 
+
+
 // body-parser init
 
 const bodyParser = require("body-parser");
@@ -68,9 +70,47 @@ app.get("/", (request,response) => {
 
 	}
 	
-	response.render("index", {'sendTo': sendTo, 'account': account, 'log': log, 'sendTo2': sendTo2});
+	
+// KANN IN ESJ  VERLAGERT WERDEN -- code genuss
+
+	let indexDevices = db.collection(itemsData).find().toArray(
+
+		function(err, result){
+
+			response.render("index", 
+				{
+					'sendTo': sendTo,
+					'account': account,
+					'log': log,
+					'sendTo2': sendTo2,
+					'devices': result
+
+				});
+
+		}
+	);
+
 
 });
+
+app.post('/viewDevice/:deviceName', (request, response) => {
+
+	console.log(request.params.deviceName);
+
+	db.collection(itemsData).findOne( {deviceName: request.params.deviceName}, (error, result) => {
+
+		console.log(result);
+
+
+		response.render("viewDevice", {'device': result});
+		
+	});
+	
+
+});
+
+
+
 
 // Global error message
 let globalMessage = "";
@@ -322,7 +362,7 @@ app.get('/admin/upload', (request, response) => {
 //set storage folder and filenames
 let storage = multer.diskStorage({
 	destination: function(request, file, callback) {
-		callback(null, 'uploads/'); //define folder for uploaded files
+		callback(null, 'public/uploads'); //define folder for uploaded files
 	},
 
 	filename: function(request, file, callback) {
@@ -349,14 +389,14 @@ app.post('/admin/upload_image', function(request, response) {
 			return;
 		}
 
-		console.log(request.file.path + " request.file");
+		console.log(request.file.filename + " request.file");
 
 
 		// save the image path to item collection
 		// add array of images?
 		const items = {
 
-			'imagePath' : [request.file.path],
+			'imageName' : [request.file.filename],
 			'deviceName' : request.body.deviceName,
 			'price' : request.body.price,
 			'description' : request.body.description,

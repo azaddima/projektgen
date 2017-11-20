@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gerät</title>
+</head>
+<body>
+	<h1>Hund</h1>
+	
+	<img src="..\uploads\<%= device.imageName[0] %>">
+
+	<p><%= device.deviceName %></p>
+	<p><%= device.price %> €</p>
+	<p><%= device.description %></p>
+
+
+	<form method="post"  action="">
+		<select name="days">
+			<option value="1">1 Tag</option>
+			<option value="3">3 Tage</option>
+			<option value="7">1 Woche</option>
+			<option value="14">2 Wochen</option>
+			<option value="31">1 Monat</option>
+		</select>
+		<button type="submit">Ausleihen</button>
+	</form>
+
+
+</body>
+</html>git
