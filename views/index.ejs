@@ -28,14 +28,12 @@
 		</div>
 	</div>
 
-	<section> Hier kommen unsere Geräte hin</section>
 	<div class="devices">
 
 		<% for(let i = 0; i < devices.length; i++) { %>
 
 			<form method="post" action="<%='/viewDevice/' + devices[i].deviceName %> ">
 				<button type="submit">
-					<input name="showDevice" value="gehzt klat">
 					<img src="uploads\<%= devices[i].imageName[0] %>" height="100" width="100">
 				</button>
 			</form>
