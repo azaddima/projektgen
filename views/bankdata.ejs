@@ -13,12 +13,16 @@
 			
 		<h2 class="headerName">Ihre Zahlungseinstellungen | <%=accountName%></h2>
 
-		<form class="bankdata" action="/user/bankdata" method="post">
-			<input type="text" name=bankNr placeholder="Kontonummer">
-			<input type="text" name=bankName placeholder="Name ihrer Bank">
+		<div class="bankdata">
+			<h2>DATEN</h2>
+		<form action="/user/bankdata" method="post">
+			<input type="text" placeholder="Kontonummer"><br>
+			<input type="text" placeholder="Name ihrer Bank"><br>
 			<button type="submit">BANKDATEN HINZUFÜGEN</button>
 		</form>
-
+		</div>
+		<a href="/user/myaccount">ZURÜCK</a>
+>>>>>>> 05918f5b5fd1df87a4cf4f9b474e1ee8adc198c6
 	</div>
 
 </body>
