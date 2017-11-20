@@ -71,20 +71,3 @@ body {
 
 }
 
-a {
-
-	grid-row: 5;
-	grid-column: 2;
-	margin-top: 15px;
-	margin-left: 15px;
-	color: black;
-	text-decoration: none;
-	justify-self: center;
-
-}
-
-a:hover {
-
-	text-decoration: underline;
-
-}
