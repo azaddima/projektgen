@@ -109,6 +109,24 @@ app.post('/viewDevice/:deviceName', (request, response) => {
 
 });
 
+// device renting
+app.post('/user/lentDevice', (request, response) => {
+
+	if(request.body.authenticated) {
+		
+		// find device first and %set rentedto : "USER" , rentTime: "DATE"
+		// to get DATE convert request.body.days to date?
+		// show time when it's back online
+		// set in userData : {device, date, priceToPay}, {xxxx another Device}
+		// check: mongoDB
+
+		db.collection(itemsData).update()
+
+	
+	}
+
+});
+
 
 
 
@@ -434,6 +452,8 @@ app.post('/admin/upload_image', function(request, response) {
 
 	});
 });
+
+
 
 
 
