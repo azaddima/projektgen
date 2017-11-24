@@ -94,11 +94,13 @@ app.get("/", (request,response) => {
 
 });
 
-app.post('/viewDevice/:deviceName', (request, response) => {
 
-	console.log(request.params.deviceName);
+// change to get Method - code genuss
+app.get('/viewDevice/:_id', (request, response) => {
 
-	db.collection(itemsData).findOne( {deviceName: request.params.deviceName}, (error, result) => {
+	console.log(request.params._id);
+
+	db.collection(itemsData).findOne( {_id: request.params._id}, (error, result) => {
 
 		console.log(result);
 
@@ -120,7 +122,27 @@ app.post('/user/lentDevice', (request, response) => {
 		// set in userData : {device, date, priceToPay}, {xxxx another Device}
 		// check: mongoDB
 
-		db.collection(itemsData).update()
+     /*
+		db.collection(itemsData).update({deviceName: "DEVICE"},
+
+		 {
+		 	$set {
+		 		rentedTo : request.session.user,
+
+		 		//make sure to put in the DATE not the days
+		 		rentedDate: request.body.days
+		 	}
+
+		 })
+		db.collection(DB_COLLECTION).update({user: request.session.user}, 
+		{
+			$set {
+				
+			}
+
+		})
+
+	*/
 
 	
 	}
@@ -140,7 +162,7 @@ app.get("/user/login", (request, response) => {
 		response.render("login", {'message': globalMessage})
 	
 		// Error message is set blank after rendering
-		// otherwise the message wouldnt dissapear after server restart
+		// otherwise the message wouldnt dissapear until overwriting
 		// !!!! important
 		globalMessage = "";
 		
@@ -325,7 +347,7 @@ app.get("/logout", (request,response) => {
 	response.redirect('/user/login');
 });
 
-app.get('/user/myaccount', (request, response) => {
+app.get('/user/myaccount', (request, response) => { 
 	if(request.session.authenticated) {
 		response.render('myaccount', {
 
