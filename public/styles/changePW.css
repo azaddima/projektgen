@@ -10,7 +10,7 @@ body {
 	"topsection topsection topsection"
 	"section section section"
 	"footer footer footer";
-	grid-template-rows: 25px 55px 100px 400px 200px;
+	grid-template-rows: 25px 55px 100px 400px 170px;
 	grid-template-columns: 1fr 2fr 1fr;
 	grid-gap: 10px;
 	height: 100vh; 
@@ -190,5 +190,14 @@ a {
 a:hover {
 
 	text-decoration: underline;
+
+}
+
+.impressum {
+
+	grid-row: 6;
+	grid-column: 1;
+	align-self: baseline;
+	padding-left: 20px;
 
 }

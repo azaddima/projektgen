@@ -2,19 +2,30 @@
 <html>
 <head>
 	<title>Amdin upload</title>
+	<link rel="stylesheet" type="text/css" href="../styles/upload.css">
 </head>
 <body>
 
-	<h1>Geräte zum Shop hinzufügen</h1>
+	<div class="navigation">
+		<header>
+			<h1 class="logo">Verleih123</h1>
+		</header>
+	</div>
 
-	<form action="upload_image" method="post" enctype="multipart/form-data">
-		<input type="text" name="deviceName" placeholder="Gerätename">
-		<input type="text" name="price" placeholder="Preise">
-		<input type="text" name="description" placeholder="Geräte Beschreibung">
+	<h1 class="headline">Geräte zum Shop hinzufügen</h1>
 
-		<input type="file" name="filename"><br/><br/>
-		<input type="submit" value="Gerät Hinzufügen" name="submit">
-	</form>
+	<div class="uploadform">
+		<form action="upload_image" method="post" enctype="multipart/form-data">
+			<input type="text" name="deviceName" placeholder="Gerätename">
+			<input type="text" name="price" placeholder="Preise">
+			<input type="text" name="description" placeholder="Geräte Beschreibung">
 
+			<input type="file" name="filename"><br/><br/>
+			<input type="submit" value="Gerät Hinzufügen" name="submit">
+		</form>
+	</div>
+	<div class="backlink">
+		<a href="/user/myaccount">ZURÜCK<a>
+	</div>
 </body>
 </html>
