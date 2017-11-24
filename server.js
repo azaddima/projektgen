@@ -52,26 +52,7 @@ app.listen(port, function() {
 // Startseite
 app.get("/", (request,response) => {
 
-	// can be coded in HTML to prevent this bulky code
 
-	let account = "Einloggen";
-	let sendTo = "/user/login";
-	let log = "Anmelden";
-	let sendTo2 = "/user/login";
-
-	// SEND TO
-
-	// Try programm it in HTML!
-	if(request.session.authenticated == true) {
-		sendTo = "/user/myaccount"
-		account = "Mein Konto";
-		log = "Abmelden";
-		sendTo2 = "/logout";
-
-	}
-	
-	
-// KANN IN ESJ  VERLAGERT WERDEN -- code genuss
 // if nothing is in items data make sure no error is shown -- code genuss
 
 	let indexDevices = db.collection(itemsData).find().toArray(
@@ -80,12 +61,8 @@ app.get("/", (request,response) => {
 
 			response.render("index", 
 				{
-					'sendTo': sendTo,
-					'account': account,
-					'log': log,
-					'sendTo2': sendTo2,
-					'devices': result
-
+					'devices': result,
+					'userAuth': request.session.authenticated
 				});
 
 		}
@@ -112,7 +89,7 @@ app.get('/viewDevice/:_id', (request, response) => {
 });
 
 // device renting
-app.post('/user/lentDevice', (request, response) => {
+app.post('/user/rentDevice', (request, response) => {
 
 	if(request.body.authenticated) {
 		
