@@ -72,7 +72,6 @@ app.get("/", (request,response) => {
 });
 
 
-// change to get Method - code genuss
 app.get('/viewDevice/:_id', (request, response) => {
 
 	console.log(request.params._id);
@@ -92,28 +91,27 @@ app.get('/viewDevice/:_id', (request, response) => {
 app.post('/user/rentDevice', (request, response) => {
 
 	if(request.body.authenticated) {
+	}
 		
-		// find device first and %set rentedto : "USER" , rentTime: "DATE"
-		// to get DATE convert request.body.days to date?
-		// show time when it's back online
-		// set in userData : {device, date, priceToPay}, {xxxx another Device}
-		// check: mongoDB
-
-     /*
-		db.collection(itemsData).update({deviceName: "DEVICE"},
+		// look for deviceID
+		// does it work with params?
+		db.collection(itemData).update({_id: "ID"},
 
 		 {
-		 	$set {
-		 		rentedTo : request.session.user,
+		 	$set: {
 
+		 		rentedTo : request.session.user,
 		 		//make sure to put in the DATE not the days
 		 		rentedDate: request.body.days
 		 	}
 
+		 	
+
 		 })
+		/*
 		db.collection(DB_COLLECTION).update({user: request.session.user}, 
 		{
-			$set {
+			$set: {
 				
 			}
 
@@ -122,7 +120,8 @@ app.post('/user/rentDevice', (request, response) => {
 	*/
 
 	
-	}
+
+	
 
 });
 
@@ -339,6 +338,7 @@ app.get('/user/myaccount', (request, response) => {
 		response.redirect('/user/login');
 	}
 });
+
 
 
 // PASSWORD management
