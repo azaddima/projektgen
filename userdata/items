@@ -22,3 +22,6 @@
 {"k":"0000000078","o":"0000000120","v":"001"}
 {"_id":9,"_uid":9,"_dt":1511207106326,"_s":"895cc71e421d70239f9e567ed8b61f1a"}
 {"imageName":["ship.png"],"deviceName":"Jimmy","price":"123123142","description":"Boosted","_id":{"$wrap":"$oid","v":9}}
+{"k":"0000000078","o":"0000000126","v":"001"}
+{"_id":3,"_uid":9,"_dt":1511873440403,"_s":"18521ae2c70be26a3603b3af60338600"}
+{"imageName":["Olga.png"],"deviceName":"Ficker","price":"10","description":"Ficken","_id":{"$wrap":"$oid","v":3},"rented":"1"}

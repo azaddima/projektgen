@@ -19,7 +19,7 @@ app.engine(".ejs", require("ejs").__express);
 app.set("view engine", "ejs");
 
 // Database setup
-const DB_COLLECTION = 'users';
+const DB_COLLECTION = 'users'; 
 const itemsData = 'items';
 const Db = require('tingodb')().Db;
 const db = new Db(__dirname + '/userdata', {})
@@ -46,35 +46,30 @@ app.use(session({
 // Server starten
 const port = 3001;
 app.listen(port, function() {
-	console.log("listening to port" + port);
+	console.log("listening to port" + port); 
 });
 
 // Startseite
-app.get("/", (request,response) => {
+app.get("/", (request, response) => {
 
 
 // if nothing is in items data make sure no error is shown -- code genuss
 
 	let indexDevices = db.collection(itemsData).find().toArray(
 
-		function(err, result){
+		function (err, result) {
 
-			response.render("index", 
-				{
+			response.render("index", {
 					'devices': result,
 					'userAuth': request.session.authenticated
 				});
-
 		}
 	);
-
-
 });
 
 
+//  view device
 app.get('/viewDevice/:_id', (request, response) => {
-
-	console.log(request.params._id);
 
 	db.collection(itemsData).findOne( {_id: request.params._id}, (error, result) => {
 
@@ -83,53 +78,49 @@ app.get('/viewDevice/:_id', (request, response) => {
 		response.render("viewDevice", {'device': result});
 		
 	});
-	
 
 });
 
 // device renting
-app.post('/user/rentDevice', (request, response) => {
+app.post('/user/rentDevice/:_id', (request, response) => {
 
-	if(request.body.authenticated) {
+	let currentId = {_id: request.params._id};
+	let updateDevice = {
+		rentedTo: request.session.user,
+		rentedTill: request.body.days
 	}
-		
-		// look for deviceID
-		// does it work with params?
-		db.collection(itemData).update({_id: "ID"},
 
-		 {
-		 	$set: {
+	console.log(request.session.user);
 
-		 		rentedTo : request.session.user,
-		 		//make sure to put in the DATE not the days
-		 		rentedDate: request.body.days
-		 	}
-
-		 	
-
-		 })
-		/*
-		db.collection(DB_COLLECTION).update({user: request.session.user}, 
-		{
-			$set: {
-				
-			}
-
+	if (request.session.authenticated) {
+		// look for deviceID - does it work with params?
+		db.collection(itemsData).updateOne(currentId, updateDevice, (error, result) => {
+			if(error) throw error;
+			console.log('1 document updated');
+			db.close();
 		})
 
-	*/
+		/*
+		db.collection(DB_COLLECTION).update({user: request.session.user}, 
+		   {
+		   $set: {
+		   	
+		   }
+	   	
+	   })
+   	
+	   */
 
-	
-
-	
+	} else {
+		response.redirect('/user/myaccount');
+	}
 
 });
-
-
-
+	
 
 // Global error message
 let globalMessage = "";
+
 
 app.get("/user/login", (request, response) => {
 
@@ -162,7 +153,6 @@ app.post("/user/login", (request,response) => {
 			accExtists = true;	
 			console.log(result.password);
 			
-
 			// if given password matches with account username
 			// Uing passwordHash to decrypt the password and compare them
 			if (passwordHash.verify(password, result.password)) {
@@ -269,7 +259,6 @@ app.post("/user/registerverify", (request, response) => {
 				}
 
 			}
-		
 		
 			// save userdata in databank
 			if(error.length == 0) {
