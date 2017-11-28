@@ -84,32 +84,61 @@ app.get('/viewDevice/:_id', (request, response) => {
 // device renting
 app.post('/user/rentDevice/:_id', (request, response) => {
 
-	let currentId = {_id: request.params._id};
-	let updateDevice = {
-		rentedTo: request.session.user,
-		rentedTill: request.body.days
-	}
-
-	console.log(request.session.user);
-
 	if (request.session.authenticated) {
-		// look for deviceID - does it work with params?
-		db.collection(itemsData).updateOne(currentId, updateDevice, (error, result) => {
-			if(error) throw error;
-			console.log('1 document updated');
+
+		//prepare variables
+		let currentUserId = request.session.userId;
+		let currentDeviceId = request.params._id;
+		let daysRented = request.body.days;
+
+		// prepare - update DEVICE data
+		let deviceId = { _id: currentDeviceId};
+		let updateDevice = {
+			$set:
+				{
+					rentedTo: currentUserId,
+					rentedTill: daysRented,
+					isRented: true
+				}
+			}
+			// update DEVICE data
+			db.collection('items').update(deviceId, updateDevice, (error, result) => {
+				if(error) throw error;
+			console.log('device data updated');
 			db.close();
 		})
 
-		/*
-		db.collection(DB_COLLECTION).update({user: request.session.user}, 
-		   {
-		   $set: {
-		   	
-		   }
-	   	
-	   })
-   	
-	   */
+
+		// search for DEVICEDATA to write in USERDATA 
+		db.collection('items').findOne({ _id: currentDeviceId }, (error, result) => {
+			if(error) throw error;
+
+			//update the USER data
+			let userId = { _id : currentUserId }
+			let updateUser = {
+				$set:
+					{	// write object data for mutliple devices
+						rented: 
+							[{
+								id: result._id,
+								name: result.deviceName,
+								date: daysRented,
+								price: result.price
+							}]
+					}
+			}
+
+			console.log(currentUserId);
+
+			db.collection('users').update(userId, updateUser, (error,result) => {
+				if(error) throw error;
+				console.log('user data updated')
+				db.close();
+			});
+
+		});
+
+		response.redirect('/');
 
 	} else {
 		response.redirect('/user/myaccount');
