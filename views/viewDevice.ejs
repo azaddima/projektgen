@@ -2,28 +2,40 @@
 <html>
 <head>
 	<title>Gerät</title>
+	<link rel="stylesheet" type="text/css" href="../styles/viewDevice.css">
 </head>
 <body>
-	<h1>Hund</h1>
-	
-	<img src="..\uploads\<%= device.imageName[0] %>" width="300" height="300">
-
-	<p><%= device.deviceName %></p>
-	<p><%= device.price %> €</p>
-	<p><%= device.description %></p>
-
-
-	<form method="post"  action="/user/rentDevice/<%=device._id%>">
-		<select name="days">
-			<option value="1">1 Tag</option>
-			<option value="3">3 Tage</option>
-			<option value="7">1 Woche</option>
-			<option value="14">2 Wochen</option>
-			<option value="31">1 Monat</option>
-		</select>
-		<button type="submit">Ausleihen</button>
-	</form>
-
-
+	<div class="gridwrapper">
+		<div class="header1">
+			<header>
+			<nav>
+				<h1 class="logo">Verleih123</h1>
+			</nav>	
+			</header>
+		</div>
+		<div class="picture">
+			<img src="..\uploads\<%= device.imageName[0] %>" width="300" height="300">
+		</div>
+		<div class="description">
+			<p class="name"><%= device.deviceName %></p><br>
+			<p>Preis: <br><br><%= device.price %> € / Tag</p><br>
+			<p>Beschreibung: <br><br><%= device.description %></p>
+			<br>
+			<br>
+			<form method="post"  action="/user/rentDevice/<%=device._id%>">
+				<select name="days">
+					<option value="1">1 Tag</option>
+					<option value="3">3 Tage</option>
+					<option value="7">1 Woche</option>
+					<option value="14">2 Wochen</option>
+					<option value="31">1 Monat</option>
+				</select>
+				<br>
+				<br>
+				<br>
+				<button type="submit">AUSLEIHEN</button>
+			</form>
+		</div>
+	</div>
 </body>
 </html>

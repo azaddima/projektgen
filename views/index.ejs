@@ -55,16 +55,10 @@
 	<div class="devices">
 
 		<% for(let i = 0; i < devices.length; i++) { %>
-			<!--
-			<form method="post" action="<%='/viewDevice/' %> ">
-				<button type="submit">
-					<img src="uploads\<%= devices[i].imageName[0] %>" height="100" width="100">
-				</button>
-			</form>
-			-->
 			
 			<a href="/viewDevice/<%=devices[i]._id%>">
-				<img src="uploads\<%= devices[i].imageName[0] %>" height="100" width="100">
+				<img src="uploads\<%= devices[i].imageName[0] %>" height="120" width="160">
+				<p><%= devices[i].price %> € / Tag</p>
 			</a>
 
 		<% } %>

@@ -29,6 +29,7 @@ body {
 
 
 header{
+
 	justify-self: left;
 	
 }
@@ -94,7 +95,10 @@ a:hover{
 	display: grid;
 	grid-template-rows: 1fr, 1fr;
 	grid-template-columns: 1fr, 1fr, 1fr 1fr;
-	grid-gap: 10px;
+	grid-gap: 40px;
+	text-align: center;
+	margin-left: 25px;
+	margin-right: 25px;
 
 	grid-template-areas: 
 	"device device device device";
@@ -107,6 +111,36 @@ a:hover{
 	padding-left: 20px;
 
 }
+
+.devices a {
+
+	background-color: rgba(100,100,100,0.5);
+	align-self: stretch;
+	border-radius: 20px;
+	text-decoration: none;
+	outline: 0;
+	border: 0;
+
+}
+
+.devices img {
+
+	padding-top: 16%;
+
+}
+
+.devices a:hover {
+
+	box-shadow: 0px 0px 5px #212121;
+
+}
+
+.devices p {
+
+	font-weight: bold;
+
+}
+
 
 
 
