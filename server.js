@@ -128,6 +128,7 @@ app.post('/user/rentDevice/:_id', (request, response) => {
 					}
 			}
 
+			// what is this
 			console.log(currentUserId);
 
 			db.collection('users').update(userId, updateUser, (error,result) => {
