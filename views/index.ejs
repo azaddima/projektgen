@@ -58,11 +58,13 @@
 
 			<a href="/viewDevice/<%=devices[i]._id%>">
 				<img src="uploads\<%= devices[i].imageName[0] %>" height="100" width="100">
+
 				<% if(devices[i].isRented) { %>
 					<p>Not avalaible.</p>						
 				<% } else { %>
-					<p>Rent now</p>
+					<p>Ausleihen für <%=devices[i].price%> €/pro Tag</p>
 				<%}%>
+
 			</a>
 			
 
