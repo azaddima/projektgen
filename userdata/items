@@ -1,9 +1,6 @@
-{"k":"0000000078","o":"0000000198","v":"001"}
-{"_id":2,"_uid":2,"_dt":1511958800099,"_s":"e669746fbd31bf8e208fd50be897293f"}
-{"imageName":["KinectScreenshot-CoordinateMapping-07-15-12.png"],"deviceName":"Schuh","price":"134","description":"Socke","_id":{"$wrap":"$oid","v":2},"rentedTo":2,"rentedTill":"14","isRented":true}
-{"k":"0000000078","o":"0000000197","v":"001"}
-{"_id":2,"_uid":2,"_dt":1511961955474,"_s":"4f168efe17f58d7a10e9b1c5e30f3fc5"}
-{"imageName":["KinectScreenshot-CoordinateMapping-07-15-12.png"],"deviceName":"Schuh","price":"134","description":"Socke","_id":{"$wrap":"$oid","v":2},"rentedTo":2,"rentedTill":"1","isRented":true}
-{"k":"0000000078","o":"0000000156","v":"001"}
-{"_id":3,"_uid":3,"_dt":1511977332118,"_s":"58ee6bc78eb0e66cd9b24be1bf97d798"}
-{"imageName":["lu-fio-new-canvas132.jpg"],"deviceName":"Test","price":"99","description":"Schlecht behandelt. Mit paar Makeln","_id":{"$wrap":"$oid","v":3}}
+{"k":"0000000078","o":"0000000260","v":"001"}
+{"_id":2,"_uid":3,"_dt":1511984746358,"_s":"01bb0830ca5c91306ad88331f8a4f144"}
+{"imageName":["KinectScreenshot-CoordinateMapping-07-15-12.png"],"deviceName":"Schuh","price":"134","description":"Socke","_id":{"$wrap":"$oid","v":2},"rentedTo":3,"rentedTill":{"$wrap":"$date","v":1513205999353,"h":"2017-12-13T22:59:59.353Z"},"isRented":true}
+{"k":"0000000078","o":"0000000265","v":"001"}
+{"_id":3,"_uid":3,"_dt":1511994445338,"_s":"1452b665b3373ffd6fe98b65150b821b"}
+{"imageName":["lu-fio-new-canvas132.jpg"],"deviceName":"Test","price":"99","description":"Schlecht behandelt. Mit paar Makeln","_id":{"$wrap":"$oid","v":3},"rentedTo":3,"rentedTill":{"$wrap":"$date","v":1512255599334,"h":"2017-12-02T22:59:59.334Z"},"isRented":true}

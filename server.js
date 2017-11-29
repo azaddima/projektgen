@@ -72,13 +72,8 @@ app.get("/", (request, response) => {
 app.get('/viewDevice/:_id', (request, response) => {
 
 	db.collection(itemsData).findOne( {_id: request.params._id}, (error, result) => {
-
-		console.log(result);
-
 		response.render("viewDevice", {'device': result});
-		
 	});
-
 });
 
 // device renting
@@ -89,7 +84,11 @@ app.post('/user/rentDevice/:_id', (request, response) => {
 		//prepare variables
 		let currentUserId = request.session.userId;
 		let currentDeviceId = request.params._id;
-		let daysRented = request.body.days;
+		
+		let daysRented = parseFloat(request.body.days);
+		let date = new createDate(daysRented, 23,59,59);
+	
+		console.log('-------\ngive back date: ' + date);
 
 		// prepare - update DEVICE data
 		let deviceId = { '_id': currentDeviceId};
@@ -97,7 +96,7 @@ app.post('/user/rentDevice/:_id', (request, response) => {
 			$set:
 				{
 					'rentedTo': currentUserId,
-					'rentedTill': daysRented,
+					'rentedTill': date,
 					'isRented': true
 				}
 			}
@@ -106,32 +105,32 @@ app.post('/user/rentDevice/:_id', (request, response) => {
 		db.collection('items').update(deviceId, updateDevice, (error, result) => {
 			if (error) return console.log(error + "\nzwei error");
 
-			
 			console.log('device data updated');
-			db.close();
 		})
 
 		// search for DEVICEDATA to write in USERDATA 
-		db.collection(itemsData).findOne({ '_id' : currentUserId }, (error, result) => {
+		db.collection(itemsData).findOne({ '_id' : currentDeviceId }, (error, result) => {
 			if(error){
 				console.log(error + ' \n1 error :)');
 				return
-				// 
-			} else {
 
-				//update the USER data
+			} else {
+			
+				//update the USER data with given _id
+				console.log('\n' + result.deviceName + '\n');
 				let userId = {
 					'_id': currentUserId
 				};
 
 				let updateUser = {
-					$set: { // write object data for mutliple devices
-						rented: [{
-							id: result._id,
-							name: result.deviceName,
-							date: daysRented,
-							price: result.price
-						}]
+					$push: { // write object data for mutliple devices
+						rented: {
+							'id': result._id,
+							'name': result.deviceName,
+							'date': date,
+							'price': result.price,
+							'totalPrice': totalPrice(result.price, daysRented)
+						}
 					}
 				};
 
@@ -140,8 +139,8 @@ app.post('/user/rentDevice/:_id', (request, response) => {
 						console.log(error + "drei error");
 						return
 					}
+
 					console.log('user data updated')
-					db.close();
 				});	
 			}
 		});
@@ -203,7 +202,7 @@ app.post("/user/login", (request,response) => {
 					request.session.adminAuthenticated = true;
 				}
 
-				response.redirect("/user/myaccount");
+				response.redirect("/");
 
 			// wrong password given
 			} else {
@@ -288,6 +287,7 @@ app.post("/user/registerverify", (request, response) => {
 
 
 			if(place == "" || place == null) {
+
 				error.push("Bitte geben Sie ihren Wohnort an.");
 			} else {
 
@@ -309,7 +309,8 @@ app.post("/user/registerverify", (request, response) => {
 					'adress': adress,
 					'adressNr' : adressNr,
 					'place': place,
-					'plz': plz
+					'plz': plz,
+					'rented': ''
 				};
 		
 				db.collection(DB_COLLECTION).save(documents, (err, result) =>  {
@@ -479,9 +480,6 @@ app.post('/admin/upload_image', function(request, response) {
 });
 
 
-
-
-
 app.get('/user/personaldata', (request, response) => {
 	response.render('personaldata', {'accountName': request.session.username});
 });
@@ -499,3 +497,22 @@ app.post('/user/bankdata', (request, response) => {
 	//OKE mach isch
 	response.redirect('/user/myaccount');
 });
+
+
+
+// functions
+
+function createDate (daysRented, h, m, s) {
+	let date = new Date();
+	date.setDate(date.getDate() + daysRented);
+	date.setHours(h);
+	date.setMinutes(s);
+	date.setSeconds(m);
+
+	return date;
+}
+
+function totalPrice(price, days){
+	let total = price * days;
+	return total
+}
