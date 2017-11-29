@@ -92,51 +92,58 @@ app.post('/user/rentDevice/:_id', (request, response) => {
 		let daysRented = request.body.days;
 
 		// prepare - update DEVICE data
-		let deviceId = { _id: currentDeviceId};
+		let deviceId = { '_id': currentDeviceId};
 		let updateDevice = {
 			$set:
 				{
-					rentedTo: currentUserId,
-					rentedTill: daysRented,
-					isRented: true
+					'rentedTo': currentUserId,
+					'rentedTill': daysRented,
+					'isRented': true
 				}
 			}
-			// update DEVICE data
-			db.collection('items').update(deviceId, updateDevice, (error, result) => {
-				if(error) throw error;
+
+		// update DEVICE data
+		db.collection('items').update(deviceId, updateDevice, (error, result) => {
+			if (error) return console.log(error + "\nzwei error");
+
+			
 			console.log('device data updated');
 			db.close();
 		})
 
-
 		// search for DEVICEDATA to write in USERDATA 
-		db.collection('items').findOne({ _id: currentDeviceId }, (error, result) => {
-			if(error) throw error;
+		db.collection(itemsData).findOne({ '_id' : currentUserId }, (error, result) => {
+			if(error){
+				console.log(error + ' \n1 error :)');
+				return
+				// 
+			} else {
 
-			//update the USER data
-			let userId = { _id : currentUserId }
-			let updateUser = {
-				$set:
-					{	// write object data for mutliple devices
-						rented: 
-							[{
-								id: result._id,
-								name: result.deviceName,
-								date: daysRented,
-								price: result.price
-							}]
+				//update the USER data
+				let userId = {
+					'_id': currentUserId
+				};
+
+				let updateUser = {
+					$set: { // write object data for mutliple devices
+						rented: [{
+							id: result._id,
+							name: result.deviceName,
+							date: daysRented,
+							price: result.price
+						}]
 					}
+				};
+
+				db.collection(DB_COLLECTION).update(userId, updateUser, (error, result) => {
+					if (error) {
+						console.log(error + "drei error");
+						return
+					}
+					console.log('user data updated')
+					db.close();
+				});	
 			}
-
-			// what is this
-			console.log(currentUserId);
-
-			db.collection('users').update(userId, updateUser, (error,result) => {
-				if(error) throw error;
-				console.log('user data updated')
-				db.close();
-			});
-
 		});
 
 		response.redirect('/');

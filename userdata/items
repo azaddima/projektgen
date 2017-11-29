@@ -1,48 +1,9 @@
-{"k":"0000000078","o":"0000000126","v":"001"}
-{"_id":2,"_uid":2,"_dt":1511192194825,"_s":"1310e7850ef9e4fc5909828ee2729278"}
-{"imageName":["kastrierer.png"],"deviceName":"Kastrierer","price":"12","description":"Diese Gut","_id":{"$wrap":"$oid","v":2}}
-{"k":"0000000078","o":"0000000126","v":"001"}
-{"_id":3,"_uid":9,"_dt":1511873440403,"_s":"18521ae2c70be26a3603b3af60338600"}
-{"imageName":["Olga.png"],"deviceName":"Ficker","price":"10","description":"Ficken","_id":{"$wrap":"$oid","v":3},"rented":"1"}
-{"k":"0000000078","o":"0000000116","v":"001"}
-{"_id":4,"_uid":4,"_dt":1511192275437,"_s":"30d042b948f26644abb8466cfd166102"}
-{"imageName":["MENA.png"],"deviceName":"Fickerewq","price":"10","description":"Ficken","_id":{"$wrap":"$oid","v":4}}
-{"k":"0000000078","o":"0000000110","v":"001"}
-{"_id":5,"_uid":5,"_dt":1511192283338,"_s":"154739b6b2ae37e72013e841ea33fc03"}
-{"imageName":["bg4.png"],"deviceName":"nana","price":"10","description":"Ficken","_id":{"$wrap":"$oid","v":5}}
-{"k":"0000000078","o":"0000000117","v":"001"}
-{"_id":6,"_uid":6,"_dt":1511192320587,"_s":"e5e82037f9565b9421d1fe342942b7da"}
-{"imageName":["Skizze (2).png"],"deviceName":"nana","price":"10","description":"Ficken","_id":{"$wrap":"$oid","v":6}}
-{"k":"0000000078","o":"0000000115","v":"001"}
-{"_id":7,"_uid":7,"_dt":1511192327337,"_s":"0d5894468c20b90847a721982e4a6ff2"}
-{"imageName":["Fanus.png"],"deviceName":"nana","price":"10","description":"Fickendsa","_id":{"$wrap":"$oid","v":7}}
-{"k":"0000000078","o":"0000000115","v":"001"}
-{"_id":8,"_uid":8,"_dt":1511192332819,"_s":"e2a78e1308b3b01c26103fe67be50c36"}
-{"imageName":["Fanus.png"],"deviceName":"nana","price":"10","description":"Fickendsa","_id":{"$wrap":"$oid","v":8}}
-{"k":"0000000078","o":"0000000120","v":"001"}
-{"_id":9,"_uid":9,"_dt":1511207106326,"_s":"895cc71e421d70239f9e567ed8b61f1a"}
-{"imageName":["ship.png"],"deviceName":"Jimmy","price":"123123142","description":"Boosted","_id":{"$wrap":"$oid","v":9}}
-{"k":"0000000078","o":"0000000132","v":"001"}
-{"_id":7,"_uid":9,"_dt":1511876823758,"_s":"8c2278d9733ba5683a2c6a49947dfcfc"}
-{"imageName":["Fanus.png"],"deviceName":"nana","price":"10","description":"Fickendsa","_id":{"$wrap":"$oid","v":7},"rentedTill":"1"}
-{"k":"0000000078","o":"0000000132","v":"001"}
-{"_id":8,"_uid":9,"_dt":1511877049184,"_s":"25da0435616d388dff7468bb30e05e1f"}
-{"imageName":["Fanus.png"],"deviceName":"nana","price":"10","description":"Fickendsa","_id":{"$wrap":"$oid","v":8},"rentedTill":"1"}
-{"k":"0000000078","o":"0000000161","v":"001"}
-{"_id":2,"_uid":9,"_dt":1511877906824,"_s":"07f22f6fbc4797fb07b275f4544ae68c"}
-{"imageName":["kastrierer.png"],"deviceName":"Kastrierer","price":"12","description":"Diese Gut","_id":{"$wrap":"$oid","v":2},"rentedTo":"azad","rentedTill":"7"}
-{"k":"0000000078","o":"0000000172","v":"001"}
-{"_id":2,"_uid":9,"_dt":1511881288477,"_s":"8404e1dfc335eba82f779b0ed4718133"}
-{"imageName":["kastrierer.png"],"deviceName":"Kastrierer","price":"12","description":"Diese Gut","_id":{"$wrap":"$oid","v":2},"rentedTo":2,"rentedTill":"7","isRented":true}
-{"k":"0000000078","o":"0000000173","v":"001"}
-{"_id":2,"_uid":9,"_dt":1511881396359,"_s":"fcadf708f754047b882a9a25758bda66"}
-{"imageName":["kastrierer.png"],"deviceName":"Kastrierer","price":"12","description":"Diese Gut","_id":{"$wrap":"$oid","v":2},"rentedTo":2,"rentedTill":"14","isRented":true}
-{"k":"0000000078","o":"0000000172","v":"001"}
-{"_id":2,"_uid":9,"_dt":1511881793269,"_s":"8404e1dfc335eba82f779b0ed4718133"}
-{"imageName":["kastrierer.png"],"deviceName":"Kastrierer","price":"12","description":"Diese Gut","_id":{"$wrap":"$oid","v":2},"rentedTo":2,"rentedTill":"7","isRented":true}
-{"k":"0000000078","o":"0000000172","v":"001"}
-{"_id":2,"_uid":9,"_dt":1511881946848,"_s":"61fb4eadb5b49ab804bc7ff72071c43d"}
-{"imageName":["kastrierer.png"],"deviceName":"Kastrierer","price":"12","description":"Diese Gut","_id":{"$wrap":"$oid","v":2},"rentedTo":2,"rentedTill":"1","isRented":true}
-{"k":"0000000078","o":"0000000173","v":"001"}
-{"_id":3,"_uid":9,"_dt":1511882186355,"_s":"beaaed270dec12176df5daf3ed2cd1df"}
-{"imageName":["Olga.png"],"deviceName":"Ficker","price":"10","description":"Ficken","_id":{"$wrap":"$oid","v":3},"rented":"1","rentedTo":2,"rentedTill":"14","isRented":true}
+{"k":"0000000078","o":"0000000198","v":"001"}
+{"_id":2,"_uid":2,"_dt":1511958800099,"_s":"e669746fbd31bf8e208fd50be897293f"}
+{"imageName":["KinectScreenshot-CoordinateMapping-07-15-12.png"],"deviceName":"Schuh","price":"134","description":"Socke","_id":{"$wrap":"$oid","v":2},"rentedTo":2,"rentedTill":"14","isRented":true}
+{"k":"0000000078","o":"0000000197","v":"001"}
+{"_id":2,"_uid":2,"_dt":1511961955474,"_s":"4f168efe17f58d7a10e9b1c5e30f3fc5"}
+{"imageName":["KinectScreenshot-CoordinateMapping-07-15-12.png"],"deviceName":"Schuh","price":"134","description":"Socke","_id":{"$wrap":"$oid","v":2},"rentedTo":2,"rentedTill":"1","isRented":true}
+{"k":"0000000078","o":"0000000156","v":"001"}
+{"_id":3,"_uid":3,"_dt":1511977332118,"_s":"58ee6bc78eb0e66cd9b24be1bf97d798"}
+{"imageName":["lu-fio-new-canvas132.jpg"],"deviceName":"Test","price":"99","description":"Schlecht behandelt. Mit paar Makeln","_id":{"$wrap":"$oid","v":3}}
