@@ -4,3 +4,27 @@
 {"k":"0000000078","o":"0000000265","v":"001"}
 {"_id":3,"_uid":3,"_dt":1511994445338,"_s":"1452b665b3373ffd6fe98b65150b821b"}
 {"imageName":["lu-fio-new-canvas132.jpg"],"deviceName":"Test","price":"99","description":"Schlecht behandelt. Mit paar Makeln","_id":{"$wrap":"$oid","v":3},"rentedTo":3,"rentedTill":{"$wrap":"$date","v":1512255599334,"h":"2017-12-02T22:59:59.334Z"},"isRented":true}
+{"k":"0000000078","o":"0000000265","v":"001"}
+{"_id":3,"_uid":3,"_dt":1512039392282,"_s":"35740afc24487eb453d42b742acdfa06"}
+{"imageName":["lu-fio-new-canvas132.jpg"],"deviceName":"Test","price":"99","description":"Schlecht behandelt. Mit paar Makeln","_id":{"$wrap":"$oid","v":3},"rentedTo":3,"rentedTill":{"$wrap":"$date","v":1513292399273,"h":"2017-12-14T22:59:59.273Z"},"isRented":true}
+{"k":"0000000078","o":"0000000260","v":"001"}
+{"_id":2,"_uid":3,"_dt":1512039413455,"_s":"614715fc3ca453b70c8597069a8cece4"}
+{"imageName":["KinectScreenshot-CoordinateMapping-07-15-12.png"],"deviceName":"Schuh","price":"134","description":"Socke","_id":{"$wrap":"$oid","v":2},"rentedTo":3,"rentedTill":{"$wrap":"$date","v":1512169199452,"h":"2017-12-01T22:59:59.452Z"},"isRented":true}
+{"k":"0000000078","o":"0000000265","v":"001"}
+{"_id":3,"_uid":3,"_dt":1512039431933,"_s":"62287badf425c94400af0fa4bec05821"}
+{"imageName":["lu-fio-new-canvas132.jpg"],"deviceName":"Test","price":"99","description":"Schlecht behandelt. Mit paar Makeln","_id":{"$wrap":"$oid","v":3},"rentedTo":3,"rentedTill":{"$wrap":"$date","v":1514761199928,"h":"2017-12-31T22:59:59.928Z"},"isRented":true}
+{"k":"0000000078","o":"0000000260","v":"001"}
+{"_id":2,"_uid":3,"_dt":1512057914186,"_s":"9e242e45d4690127c2dcca04360ba7d2"}
+{"imageName":["KinectScreenshot-CoordinateMapping-07-15-12.png"],"deviceName":"Schuh","price":"134","description":"Socke","_id":{"$wrap":"$oid","v":2},"rentedTo":3,"rentedTill":{"$wrap":"$date","v":1512687599181,"h":"2017-12-07T22:59:59.181Z"},"isRented":true}
+{"k":"0000000078","o":"0000000260","v":"001"}
+{"_id":2,"_uid":3,"_dt":1512059777176,"_s":"fab91d7b4ccbfadbd986da223ebc79d3"}
+{"imageName":["KinectScreenshot-CoordinateMapping-07-15-12.png"],"deviceName":"Schuh","price":"134","description":"Socke","_id":{"$wrap":"$oid","v":2},"rentedTo":3,"rentedTill":{"$wrap":"$date","v":1512687599168,"h":"2017-12-07T22:59:59.168Z"},"isRented":true}
+{"k":"0000000078","o":"0000000117","v":"001"}
+{"_id":4,"_uid":4,"_dt":1512059818725,"_s":"45d0c4323c3333213ba19d0a67ec272f"}
+{"imageName":["bg4.png"],"deviceName":"Bilder","price":"2","description":"Sehr Schöne","_id":{"$wrap":"$oid","v":4}}
+{"k":"0000000078","o":"0000000120","v":"001"}
+{"_id":5,"_uid":5,"_dt":1512059846382,"_s":"752a7eb0f8cbc5a7936bf19656702a9d"}
+{"imageName":["ship.png"],"deviceName":"Noch ein Bild","price":"45","description":"Teuer!","_id":{"$wrap":"$oid","v":5}}
+{"k":"0000000078","o":"0000000111","v":"001"}
+{"_id":6,"_uid":6,"_dt":1512059869222,"_s":"14fbeb8cd42e576d803e362bbd5a987e"}
+{"imageName":["Olga.png"],"deviceName":"Olga","price":"55","description":"Schön","_id":{"$wrap":"$oid","v":6}}

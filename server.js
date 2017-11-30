@@ -115,7 +115,7 @@ app.post('/user/rentDevice/:_id', (request, response) => {
 				return
 
 			} else {
-			
+
 				//update the USER data with given _id
 				console.log('\n' + result.deviceName + '\n');
 				let userId = {
@@ -516,3 +516,4 @@ function totalPrice(price, days){
 	let total = price * days;
 	return total
 }
+

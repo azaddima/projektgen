@@ -1,0 +1,14 @@
+<%
+
+function totalIt() {
+  let input = document.getElementsByName("days");
+  let total = 0;
+  for (let i = 0; i < input.length; i++) {
+    if(input[i].tagName == 'SELECT'){
+      total += Number(input[i].options[input[i].selectedIndex].value);
+    }
+  }
+  document.getElementById("total").value = total;
+}
+
+%>
