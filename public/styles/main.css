@@ -81,6 +81,8 @@ footer {
 a{
 	text-decoration: none;
 	color: black;
+	outline: 0;
+	border: 0;
 
 }
 
@@ -98,8 +100,9 @@ a:hover{
 	grid-template-columns: 1fr, 1fr, 1fr 1fr;
 	grid-gap: 40px;
 	text-align: center;
-	margin-left: 25px;
-	margin-right: 25px;
+	margin-left: 200px;
+	margin-right: 200px;
+	max-height: 300px;
 
 	grid-template-areas: 
 	"device device device device";
