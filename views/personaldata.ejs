@@ -38,7 +38,7 @@
 						<%} else{ %>
 							<td><%=devices.rented[i].totalPrice%></td>
 							<td>
-								<form action="/user/returnDevice/<%=devices.rented[i].name%>" method="post">
+								<form action="/user/payDevice/<%=devices.rented[i].name%>" method="post">
 									<button type="submit">Bezahlen</button>
 								</form>
 							</td>

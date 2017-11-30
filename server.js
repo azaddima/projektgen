@@ -123,7 +123,10 @@ app.post('/user/rentDevice/:_id', (request, response) => {
 				};
 
 				let updateUser = {
-					$push: { // write object data for mutliple devices
+					
+					// write object data for mutliple devices
+					$push: 
+					{ 
 						rented: {
 							'id': result._id,
 							'name': result.deviceName,
@@ -311,7 +314,7 @@ app.post("/user/registerverify", (request, response) => {
 					'adressNr' : adressNr,
 					'place': place,
 					'plz': plz,
-					'rented': ''
+					'rented': [],
 				};
 		
 				db.collection(DB_COLLECTION).save(documents, (err, result) =>  {
@@ -458,14 +461,14 @@ app.post('/admin/upload_image', function(request, response) {
 		}
 
 		console.log(request.file.filename + " request.file");
-
+		let deviceNoSpaces = request.body.deviceName.replace(/[0-9, $]/g, '');
 
 		// save the image path to item collection
 		// add array of images?
 		const items = {
 
 			'imageName' : [request.file.filename],
-			'deviceName' : request.body.deviceName,
+			'deviceName': deviceNoSpaces,
 			'price' : request.body.price,
 			'description' : request.body.description,
 		};
@@ -493,6 +496,45 @@ app.get('/user/personaldata', (request, response) => {
 	} else {
 		response.redirect('/user/myaccount');
 	}
+});
+
+app.post('/user/payDevice/:deviceName', (request,response)=> {
+	let deviceName = request.params.deviceName;
+
+	/*
+	let search = { _id: request.session.userId, 'rented.name': deviceName};
+	let update = {$set: {'rented.$.isPaid': true}};	
+	*/
+
+	//from  https://stackoverflow.com/questions/4993764/removing-numbers-from-string
+	let withNoDigits = deviceName.replace(/[0-9, $]/g, '');
+	console.log(withNoDigits);
+	console.log(deviceName);
+
+	if(request.session.authenticated) {
+		
+		db.collection(DB_COLLECTION).findOne( { '_id': request.session.userId }, function (err, doc) {
+			for (i = 0; i < doc.rented.length; i++) {
+				//do what you gotta do
+				if(doc.rented[i].name == deviceName) {
+		
+					doc.rented[i].isPaid = true;
+					console.log(doc.rented[i].isPaid);
+				}
+			}
+			db.collection(DB_COLLECTION).update({ '_id': request.session.userId }, { $set: { 'rented': doc.rented } }, (error, doc) => {
+				if (error) return console.log(error);
+				
+			});
+		});
+
+		response.redirect('/user/personaldata');
+
+	} else {
+		
+		response.redirect('/user/myaccount');
+	}
+
 });
 
 
