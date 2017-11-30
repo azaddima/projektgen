@@ -72,7 +72,7 @@ app.get("/", (request, response) => {
 app.get('/viewDevice/:_id', (request, response) => {
 
 	db.collection(itemsData).findOne( {_id: request.params._id}, (error, result) => {
-		response.render("viewDevice", {'device': result});
+		response.render("viewDevice", {'device': result, 'userAuth': request.session.authenticated});
 	});
 });
 
