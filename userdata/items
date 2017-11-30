@@ -28,3 +28,6 @@
 {"k":"0000000078","o":"0000000111","v":"001"}
 {"_id":6,"_uid":6,"_dt":1512059869222,"_s":"14fbeb8cd42e576d803e362bbd5a987e"}
 {"imageName":["Olga.png"],"deviceName":"Olga","price":"55","description":"Schön","_id":{"$wrap":"$oid","v":6}}
+{"k":"0000000078","o":"0000000220","v":"001"}
+{"_id":6,"_uid":6,"_dt":1512069763782,"_s":"84a683a1b80d8bdff71b949218048745"}
+{"imageName":["Olga.png"],"deviceName":"Olga","price":"55","description":"Schön","_id":{"$wrap":"$oid","v":6},"rentedTo":3,"rentedTill":{"$wrap":"$date","v":1513292399776,"h":"2017-12-14T22:59:59.776Z"},"isRented":true}

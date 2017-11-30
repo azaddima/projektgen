@@ -129,7 +129,8 @@ app.post('/user/rentDevice/:_id', (request, response) => {
 							'name': result.deviceName,
 							'date': date,
 							'price': result.price,
-							'totalPrice': totalPrice(result.price, daysRented)
+							'totalPrice': totalPrice(result.price, daysRented),
+							'isPaid': false
 						}
 					}
 				};
@@ -481,23 +482,18 @@ app.post('/admin/upload_image', function(request, response) {
 
 
 app.get('/user/personaldata', (request, response) => {
-	response.render('personaldata', {'accountName': request.session.username});
+
+	if(request.session.authenticated){
+		db.collection(DB_COLLECTION).findOne({ _id: request.session.userId }, (error, result) => {
+			if (error) return console.log(error);
+			
+			response.render('personaldata', { 'accountName': request.session.username, devices: result });
+
+		})
+	} else {
+		response.redirect('/user/myaccount');
+	}
 });
-
-
-
-app.get('/user/bankdata', (request, response) => {
-	response.render('bankdata', {'accountName': request.session.username});
-});
-
-
-app.post('/user/bankdata', (request, response) => {
-
-	//Hier müssen die Bankdaten in die Datenbank geschrieben werden und dem richtigen User zugeordnet werden!
-	//OKE mach isch
-	response.redirect('/user/myaccount');
-});
-
 
 
 // functions

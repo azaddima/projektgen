@@ -33,7 +33,6 @@ body {
 	margin: 0;
 
 }
-
 .logo {
 
 	color: white;
@@ -54,6 +53,7 @@ body {
 
 }
 
+
 .logoutlink {
 
 	grid-row: 1;
@@ -71,3 +71,13 @@ body {
 
 }
 
+.table {
+	grid-row: 4;
+	grid-column: 1/4;
+	padding: 0 50px 0 50px;
+}
+
+
+.table th {
+	padding: 0 5em 0 5em;
+}

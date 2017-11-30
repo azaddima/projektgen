@@ -10,8 +10,48 @@
 		<div class="header">
 			<h1 class="logo">Verleih123</h1>
 		</div>
-		<h2 class="headerName">Ihre Kontoeinstellungen | <%=accountName%></h2>
+		<h2 class="headerName">Ihre Geräte| <%=accountName%></h2>
+
+		<div class="table">
+			<table>
+				<th>Gerät</th>
+				<th>Preis pro Tag</th>
+				<th>Ausgeliehen bis</th>
+				<th>Zu zahlen</th>
+				<th></th>
+				<th></th>
+				<% for(let i = 0; i < devices.rented.length; i++) { %>
+					<tr>
+						<td><%=devices.rented[i].name%></td>
+						<td><%=devices.rented[i].price%></td>
+						<td><%=devices.rented[i].date.getDay()%>/<%=devices.rented[i].date.getMonth()%>/<%=devices.rented[i].date.getFullYear()%></td>
+
+						<!-- If device is paid -->
+						<% if(devices.rented[i].isPaid) { %>
+							<td>Bezahlt.</td>
+							<td>
+								<form action="/user/returnDevice/<%=devices.rented[i].name%>" method="post">
+									<button type="submit">Zurück geben</button>
+								</form>
+
+							</td>	
+						<%} else{ %>
+							<td><%=devices.rented[i].totalPrice%></td>
+							<td>
+								<form action="/user/returnDevice/<%=devices.rented[i].name%>" method="post">
+									<button type="submit">Bezahlen</button>
+								</form>
+							</td>
+						<%}%>
+
+						</tr>
+				<%}%>
 			
+			<a href="/user/myaccount">Mein Konto</a>		
+			<a href="/">Startseite</a>		
+
+			</table>
+		</div>			
 	</div>
 </body>
 </html>
