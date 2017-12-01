@@ -1,6 +1,6 @@
 .gridwrapper {
 	display: grid;
-	grid-template-rows: 25px 55px 20px 400px 200px;
+	grid-template-rows: 25px 55px 20px 400px 160px;
 	grid-template-columns: 1fr 2fr 1fr;
 	grid-gap: 10px;
 	height: 100vh; 
@@ -140,7 +140,7 @@ body{
 	grid-column: 2;
 	align-self: center;
 	text-align: center;
-	margin-top: 100px;
+	margin-top: 110px;
 
 }
 
