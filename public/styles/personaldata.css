@@ -81,3 +81,7 @@ body {
 .table th {
 	padding: 0 5em 0 5em;
 }
+
+.table td{
+	text-align: center;
+}

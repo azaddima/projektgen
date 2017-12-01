@@ -29,13 +29,13 @@
 						<!-- If device is paid -->
 						<% if(devices.rented[i].isPaid) { %>
 							<td>Bezahlt.</td>
-							<!--
+							
 							<td>
 								<form action="/user/returnDevice/<%=devices.rented[i].name%>" method="post">
 									<button type="submit">Zurück geben</button>
 								</form>
 
-							</td>	 -->
+							</td>
 						<%} else{ %>
 							<td><%=devices.rented[i].totalPrice%></td>
 							<td>
@@ -49,7 +49,7 @@
 				<%}%>
 			
 			<a href="/user/myaccount">Mein Konto</a>		
-			<a href="/">Startseite</a>		
+				
 
 			</table>
 		</div>			
