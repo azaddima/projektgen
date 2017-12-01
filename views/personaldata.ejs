@@ -24,7 +24,12 @@
 					<tr>
 						<td><%=devices.rented[i].name%></td>
 						<td><%=devices.rented[i].price%></td>
-						<td><%=devices.rented[i].date.getDay()%>/<%=devices.rented[i].date.getMonth()%>/<%=devices.rented[i].date.getFullYear()%></td>
+						<td>
+							<%=devices.rented[i].date.getDate()%>/
+							<%=devices.rented[i].date.getMonth()+1%>/
+							<%=devices.rented[i].date.getFullYear()%>
+
+						</td>
 
 						<!-- If device is paid -->
 						<% if(devices.rented[i].isPaid) { %>

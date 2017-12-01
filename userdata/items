@@ -1,9 +1,42 @@
-{"k":"0000000078","o":"0000000125","v":"001"}
-{"_id":2,"_uid":2,"_dt":1512091561700,"_s":"ff1123ee81ed2bef6b61333f0c7a1637"}
-{"imageName":["Schere.png"],"deviceName":"Schere","price":"12","description":"Bisschen rostig.","_id":{"$wrap":"$oid","v":2}}
-{"k":"0000000078","o":"0000000234","v":"001"}
-{"_id":2,"_uid":2,"_dt":1512091596785,"_s":"05f7807b6b31f55034142ebc1c50e895"}
-{"imageName":["Schere.png"],"deviceName":"Schere","price":"12","description":"Bisschen rostig.","_id":{"$wrap":"$oid","v":2},"rentedTo":4,"rentedTill":{"$wrap":"$date","v":1512773999778,"h":"2017-12-08T22:59:59.778Z"},"isRented":true}
 {"k":"0000000078","o":"0000000235","v":"001"}
 {"_id":2,"_uid":2,"_dt":1512091671572,"_s":"b9a2a8b3c16540ecdebf992b72d788bb"}
 {"imageName":["Schere.png"],"deviceName":"Schere","price":"12","description":"Bisschen rostig.","_id":{"$wrap":"$oid","v":2},"rentedTo":4,"rentedTill":{"$wrap":"$date","v":1512773999778,"h":"2017-12-08T22:59:59.778Z"},"isRented":false}
+{"k":"0000000078","o":"0000000234","v":"001"}
+{"_id":2,"_uid":2,"_dt":1512113875229,"_s":"91b279f643b3a33e0e86f85e050c70f0"}
+{"imageName":["Schere.png"],"deviceName":"Schere","price":"12","description":"Bisschen rostig.","_id":{"$wrap":"$oid","v":2},"rentedTo":3,"rentedTill":{"$wrap":"$date","v":1512773999223,"h":"2017-12-08T22:59:59.223Z"},"isRented":true}
+{"k":"0000000078","o":"0000000235","v":"001"}
+{"_id":2,"_uid":2,"_dt":1512113918738,"_s":"246bdd4ed26bd22c6ac227f02ed43e8a"}
+{"imageName":["Schere.png"],"deviceName":"Schere","price":"12","description":"Bisschen rostig.","_id":{"$wrap":"$oid","v":2},"rentedTo":3,"rentedTill":{"$wrap":"$date","v":1512773999223,"h":"2017-12-08T22:59:59.223Z"},"isRented":false}
+{"k":"0000000078","o":"0000000234","v":"001"}
+{"_id":2,"_uid":2,"_dt":1512114053839,"_s":"d37d956cf2ecdc598bbab687769dcc64"}
+{"imageName":["Schere.png"],"deviceName":"Schere","price":"12","description":"Bisschen rostig.","_id":{"$wrap":"$oid","v":2},"rentedTo":3,"rentedTill":{"$wrap":"$date","v":1512255599836,"h":"2017-12-02T22:59:59.836Z"},"isRented":true}
+{"k":"0000000078","o":"0000000235","v":"001"}
+{"_id":2,"_uid":2,"_dt":1512114061710,"_s":"5de3fd5e97048c7004dff2bb482ab00e"}
+{"imageName":["Schere.png"],"deviceName":"Schere","price":"12","description":"Bisschen rostig.","_id":{"$wrap":"$oid","v":2},"rentedTo":3,"rentedTill":{"$wrap":"$date","v":1512255599836,"h":"2017-12-02T22:59:59.836Z"},"isRented":false}
+{"k":"0000000078","o":"0000000234","v":"001"}
+{"_id":2,"_uid":2,"_dt":1512114069096,"_s":"6af31e448a2bfbde074d981dbae6e225"}
+{"imageName":["Schere.png"],"deviceName":"Schere","price":"12","description":"Bisschen rostig.","_id":{"$wrap":"$oid","v":2},"rentedTo":3,"rentedTill":{"$wrap":"$date","v":1512255599091,"h":"2017-12-02T22:59:59.091Z"},"isRented":true}
+{"k":"0000000078","o":"0000000235","v":"001"}
+{"_id":2,"_uid":2,"_dt":1512114075276,"_s":"a392aa7f2c9fe54a30901d998ca9ec2e"}
+{"imageName":["Schere.png"],"deviceName":"Schere","price":"12","description":"Bisschen rostig.","_id":{"$wrap":"$oid","v":2},"rentedTo":3,"rentedTill":{"$wrap":"$date","v":1512255599091,"h":"2017-12-02T22:59:59.091Z"},"isRented":false}
+{"k":"0000000078","o":"0000000234","v":"001"}
+{"_id":2,"_uid":2,"_dt":1512114836723,"_s":"1234f60738e10bd2717d88a4684e65c0"}
+{"imageName":["Schere.png"],"deviceName":"Schere","price":"12","description":"Bisschen rostig.","_id":{"$wrap":"$oid","v":2},"rentedTo":3,"rentedTill":{"$wrap":"$date","v":1512255599721,"h":"2017-12-02T22:59:59.721Z"},"isRented":true}
+{"k":"0000000078","o":"0000000235","v":"001"}
+{"_id":2,"_uid":2,"_dt":1512114850694,"_s":"29d3f2c63d8c035d4b7ae8a8007221d3"}
+{"imageName":["Schere.png"],"deviceName":"Schere","price":"12","description":"Bisschen rostig.","_id":{"$wrap":"$oid","v":2},"rentedTo":3,"rentedTill":{"$wrap":"$date","v":1512255599721,"h":"2017-12-02T22:59:59.721Z"},"isRented":false}
+{"k":"0000000078","o":"0000000234","v":"001"}
+{"_id":2,"_uid":2,"_dt":1512116159920,"_s":"ba7d53e2007dd4ea4ac7b3f43b6f46e0"}
+{"imageName":["Schere.png"],"deviceName":"Schere","price":"12","description":"Bisschen rostig.","_id":{"$wrap":"$oid","v":2},"rentedTo":3,"rentedTill":{"$wrap":"$date","v":1512255599916,"h":"2017-12-02T22:59:59.916Z"},"isRented":true}
+{"k":"0000000078","o":"0000000235","v":"001"}
+{"_id":2,"_uid":2,"_dt":1512116785908,"_s":"39993e222ff786b973a6ddaeb473405f"}
+{"imageName":["Schere.png"],"deviceName":"Schere","price":"12","description":"Bisschen rostig.","_id":{"$wrap":"$oid","v":2},"rentedTo":3,"rentedTill":{"$wrap":"$date","v":1512255599916,"h":"2017-12-02T22:59:59.916Z"},"isRented":false}
+{"k":"0000000078","o":"0000000149","v":"001"}
+{"_id":3,"_uid":3,"_dt":1512116895938,"_s":"59344c546aa77cdf8385fab4f3f95043"}
+{"imageName":["KinectScreenshot-CoordinateMapping-07-15-12.png"],"deviceName":"Jo","price":"12.99","description":"Bibi","_id":{"$wrap":"$oid","v":3}}
+{"k":"0000000078","o":"0000000258","v":"001"}
+{"_id":3,"_uid":3,"_dt":1512116903773,"_s":"9dde8526fe033c5cfe44364401900d66"}
+{"imageName":["KinectScreenshot-CoordinateMapping-07-15-12.png"],"deviceName":"Jo","price":"12.99","description":"Bibi","_id":{"$wrap":"$oid","v":3},"rentedTo":4,"rentedTill":{"$wrap":"$date","v":1512773999770,"h":"2017-12-08T22:59:59.770Z"},"isRented":true}
+{"k":"0000000078","o":"0000000259","v":"001"}
+{"_id":3,"_uid":3,"_dt":1512116915320,"_s":"519fc28b51513f6d45148f9e0bedc588"}
+{"imageName":["KinectScreenshot-CoordinateMapping-07-15-12.png"],"deviceName":"Jo","price":"12.99","description":"Bibi","_id":{"$wrap":"$oid","v":3},"rentedTo":4,"rentedTill":{"$wrap":"$date","v":1512773999770,"h":"2017-12-08T22:59:59.770Z"},"isRented":false}
