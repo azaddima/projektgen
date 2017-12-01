@@ -52,7 +52,6 @@ app.listen(port, function() {
 // Startseite
 app.get("/", (request, response) => {
 
-
 // if nothing is in items data make sure no error is shown -- code genuss
 
 	let indexDevices = db.collection(itemsData).find().toArray(
