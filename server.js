@@ -78,85 +78,94 @@ app.get('/viewDevice/:_id', (request, response) => {
 
 // device renting
 app.post('/user/rentDevice/:_id', (request, response) => {
-
-	if (request.session.authenticated) {
-
-		//prepare variables
-		let currentUserId = request.session.userId;
-		let currentDeviceId = request.params._id;
-		
-		let daysRented = parseFloat(request.body.days);
-		let date = new createDate(daysRented, 23,59,59);
 	
-		console.log('-------\ngive back date: ' + date);
+	//prepare variables
+	let currentUserId = request.session.userId;
+	let currentDeviceId = request.params._id;
+	let isRented = false;
 
-		// prepare - update DEVICE data
-		let deviceId = { '_id': currentDeviceId};
-		let updateDevice = {
-			$set:
-				{
-					'rentedTo': currentUserId,
-					'rentedTill': date,
-					'isRented': true
-				}
+	db.collection(itemsData).findOne({ '_id': currentDeviceId }, (err, result) => {
+		if (err) return console.log(err);
+
+		if (request.session.authenticated && !result.isRented) {
+
+
+			// first check if devices 
+
+
+			let daysRented = parseFloat(request.body.days);
+			let date = new createDate(daysRented, 23, 59, 59);
+
+			console.log('-------\ngive back date: ' + date);
+
+			// prepare - update DEVICE data
+			let deviceId = { '_id': currentDeviceId };
+			let updateDevice = {
+				$set:
+					{
+						'rentedTo': currentUserId,
+						'rentedTill': date,
+						'isRented': true
+					}
 			}
 
-		// update DEVICE data
-		db.collection('items').update(deviceId, updateDevice, (error, result) => {
-			if (error) return console.log(error + "\nzwei error");
+			// update DEVICE data
+			db.collection('items').update(deviceId, updateDevice, (error, result) => {
+				if (error) return console.log(error + "\nzwei error");
 
-			console.log('device data updated');
-		})
+				console.log('device data updated');
+			})
 
-		// search for DEVICEDATA to write in USERDATA 
-		db.collection(itemsData).findOne({ '_id' : currentDeviceId }, (error, result) => {
-			if(error){
-				console.log(error + ' \n1 error :)');
-				return
+			// search for DEVICEDATA to write in USERDATA 
+			db.collection(itemsData).findOne({ '_id': currentDeviceId }, (error, result) => {
+				if (error) {
+					console.log(error + ' \n1 error :)');
+					return
 
-			} else {
+				} else {
 
-				//update the USER data with given _id
-				console.log('\n' + result.deviceName + '\n');
-				let userId = {
-					'_id': currentUserId
-				};
+					//update the USER data with given _id
+					console.log('\n' + result.deviceName + '\n');
+					let userId = {
+						'_id': currentUserId
+					};
 
-				let updateUser = {
-					
-					// write object data for mutliple devices
-					$push: 
-					{ 
-						rented: {
-							'id': result._id,
-							'name': result.deviceName,
-							'date': date,
-							'price': result.price,
-							'totalPrice': totalPrice(result.price, daysRented),
-							'isPaid': false
+					let updateUser = {
+
+						// write object data for mutliple devices
+						$push:
+							{
+								rented: {
+									'id': result._id,
+									'name': result.deviceName,
+									'date': date,
+									'price': result.price,
+									'totalPrice': totalPrice(result.price, daysRented),
+									'isPaid': false
+								}
+							}
+					};
+
+					db.collection(DB_COLLECTION).update(userId, updateUser, (error, result) => {
+						if (error) {
+							console.log(error + "drei error");
+							return
 						}
-					}
-				};
 
-				db.collection(DB_COLLECTION).update(userId, updateUser, (error, result) => {
-					if (error) {
-						console.log(error + "drei error");
-						return
-					}
+						console.log('user data updated')
+					});
+				}
+			});
 
-					console.log('user data updated')
-				});	
-			}
-		});
+			response.redirect('/');
 
-		response.redirect('/');
+		} else {
+			response.redirect('/user/myaccount');
+		}
 
-	} else {
-		response.redirect('/user/myaccount');
-	}
-
+	})
 });
-	
+
 
 // Global error message
 let globalMessage = "";
@@ -461,14 +470,11 @@ app.post('/admin/upload_image', function(request, response) {
 		}
 
 		console.log(request.file.filename + " request.file");
-		let deviceNoSpaces = request.body.deviceName.replace(/[0-9, $]/g, '');
 
-		// save the image path to item collection
-		// add array of images?
 		const items = {
 
 			'imageName' : [request.file.filename],
-			'deviceName': deviceNoSpaces,
+			'deviceName': request.body.deviceName,
 			'price' : request.body.price,
 			'description' : request.body.description,
 		};
@@ -537,6 +543,32 @@ app.post('/user/payDevice/:deviceName', (request,response)=> {
 
 });
 
+app.post('/user/returnDevice/:deviceName', (request, response) => {
+	let deviceName = request.params.deviceName;
+	 // let withNoDigits = deviceName.replace(/[0-9, $]/g, '');
+	
+	 if(request.session.authenticated) {
+		 
+		 // remove device object with $pull --- 
+		db.collection(DB_COLLECTION).update({ '_id': request.session.userId }, { $pull: {'rented.$.name': deviceName  } }, (error, doc) => {
+			if (error) return console.log(error);
+			console.log('object removed')
+			console.log(doc.rented);
+		});
+
+		// wörkt
+		db.collection(itemsData).update({ deviceName: deviceName }, { $set: { isRented: false } }, (err, doc) => {
+			if (err) return console.log(err);
+			console.log(doc);
+		});
+		
+
+		response.redirect('/user/personaldata');
+	} else {
+		response.redirect('/user/myaccount');
+	}
+});
+
 
 // functions
 
@@ -552,6 +584,6 @@ function createDate (daysRented, h, m, s) {
 
 function totalPrice(price, days){
 	let total = price * days;
-	return total
+	return total;
 }
 

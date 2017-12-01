@@ -29,21 +29,20 @@
 			<br>
 			<br>
 			<form method="post"  action="/user/rentDevice/<%=device._id%>">
+				<% if(!device.isRented) { %> 
 				
-				<% include functions %>
 				<select name="days" >
 					<option value="1">1 Tag</option>
 					<option value="3">3 Tage</option>
 					<option value="7">1 Woche</option>
 					<option value="14">2 Wochen</option>
 					<option value="31">1 Monat</option>
-					<
 				</select>
-				<br>
-				<br>
-				<br>
+				<br><br><br>
 				<button type="submit">AUSLEIHEN</button>
-
+				<%} else {%>
+					<p>Derzeit nicht verfügbar</p>
+				<% } %>
 			</form>
 		</div>
 		<div class="linkToStart">
